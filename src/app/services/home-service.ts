@@ -11,12 +11,12 @@ export class HomeService {
     // Set data for - HOME PAGE
     getData = () => {
         return {
-            'toolbarTitle': 'Ionic UI - Mikky Theme',
-            'title': 'SAVE HOURS',
-            'subtitle': 'OF DEVELOPING',
-            'subtitle2': 'and make apps fast as light!',
-            'link': 'http://csform.com/ionic4/ionic4-UI-mikky-theme/documentation/',
-            'description': 'For better understanding how our template works please read documentation.',
+            'toolbarTitle': 'Welcome EventJet',
+            'title': 'EventJet',
+            'subtitle': '',
+            'subtitle2': 'securely buy tickets for the best events in the country',
+            'link': '',
+            'description': '',
             'background': 'assets/imgs/background/39.jpg'
         };
     }

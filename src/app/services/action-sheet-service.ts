@@ -238,7 +238,7 @@ export class ActionSheetService implements IService {
   //* Data Set for page 3
   getDataForLayout3 = (): any => {
     return {
-      'toolbarTitle': 'With Text Header',
+      'toolbarTitle': 'Events',
       "shareIcon": "ellipsis-horizontal",
       "actionSheet": {
         "title": "Choose what to do with this card?",

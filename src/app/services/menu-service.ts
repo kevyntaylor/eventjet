@@ -18,6 +18,15 @@ export class MenuService implements IService {
   getAllThemes = (): Array<any> => {
     return [
       {
+        'url': 'action-sheet/2',
+        'title': 'Home',
+        'theme': 'listViews',
+        'icon': 'icon-home',
+        'listView': true,
+        'component': 'cs-animation-layout-2',
+        'singlePage': true
+      },
+      {
         'url': 'items/listViews',
         'title': 'List Views',
         'theme': 'listViews',
@@ -303,7 +312,7 @@ export class MenuService implements IService {
     return {
       'background': 'assets/imgs/background/39.jpg',
       'image': 'assets/imgs/logo/2.png',
-      'title': 'Ionic UI - Mikky Theme'
+      'title': ''
     };
   }
 
