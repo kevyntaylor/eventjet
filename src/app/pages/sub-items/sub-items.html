@@ -1,0 +1,25 @@
+<!-- Back button with custom text and icon -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-no-padding" size="12">
+        <ion-list *ngIf="pages.length">
+          <ion-item class="default-item ion-menu-toggle" lines="none" *ngFor="let item of pages" (click)="openPage(item)">
+            <ion-label>
+              <h1 class="text-size-md text-color-primary font-regular">{{item.title}}</h1>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,80 @@
+<!--Theme Profile- Profile With Slider-->
+<ion-grid class="ion-no-padding" *ngIf="viewEntered">
+  <ion-row class="padding-half" *ngIf="data != null">
+    <ion-col size="12" class="ion-margin-top padding-half">
+      <ion-card class="ion-padding ion-text-center box-shadow
+        border-radius ion-no-margin">
+        <ion-avatar>
+          <img [src]="data.image" alt="">
+        </ion-avatar>
+        <ion-card-content class="ion-text-center">
+          <h1 class="text-size-md text-color-primary font-bold ion-text-wrap">
+            {{data.title}}</h1>
+          <p class="text-size-sm text-color-secondary font-light ion-text-wrap">
+            {{data.subtitle}}</p>
+        </ion-card-content>
+        <div class="social-share">
+          <!-- Followers-->
+          <ion-item class="transparent" lines="none">
+            <ion-label class="ion-text-center">
+              <span class="text-size-sm text-color-secondary font-regular">
+                {{data.valueFollowers}}</span>
+              <div class="clearfix"></div>
+              <h2 class="text-size-sm text-color-secondary font-regular">
+                {{data.followers}}</h2>
+            </ion-label>
+          </ion-item>
+          <!-- Following -->
+          <ion-item class="transparent" lines="none">
+            <ion-label class="ion-text-center">
+              <span class="text-size-sm text-color-secondary font-regular">
+                {{data.valueFollowing}}</span>
+              <div class="clearfix"></div>
+              <h2 class="text-size-sm text-color-secondary font-regular">
+                {{data.following}}</h2>
+            </ion-label>
+          </ion-item>
+          <!-- Post -->
+          <ion-item class="transparent" lines="none">
+            <ion-label class="ion-text-center">
+              <span class="text-size-sm text-color-secondary font-regular">
+                {{data.valuePosts}}</span>
+              <div class="clearfix"></div>
+              <h2 class="text-size-sm text-color-secondary font-regular">
+                {{data.posts}}</h2>
+            </ion-label>
+          </ion-item>
+        </div>
+      </ion-card>
+    </ion-col>
+    <!-- Slider -->
+    <ion-col size="12" class="padding-half">
+      <h2 class="ion-text-uppercase text-size-sm text-color-accent
+        ion-no-margin font-bold ion-text-center">{{data.category}}</h2>
+      <ion-slides pager="true">
+        <ion-slide *ngFor="let item of data.items" (click)="onItemClickFunc(item, $event)">
+          <ion-col size="12" class="ion-text-center">
+            <ion-card class="ion-padding box-shadow border-radius margin-half">
+              <ion-img [src]="item.backgroundCard"></ion-img>
+              <ion-card-content class="ion-text-center">
+                <span class="text-size-xs text-color-secondary
+                  font-bold ion-text-capitalize">{{item.category}}</span>
+                <h1 class="text-size-md ion-text-wrap text-color-primary
+                  font-regular ion-padding-top">{{item.title}}</h1>
+              </ion-card-content>
+              <ion-button class="button-icon ion-text-capitalize" (click)="onLikeFunc(item, $event)">
+                <ion-icon class="icon-font-sm icon-color-secondary" slot="start" [ngClass]="{'active' : item.like.isActive}" [name]="item.like.icon"></ion-icon>
+                {{item.like.number}} {{item.like.text}}
+              </ion-button>
+              <ion-button class="button-icon ion-text-capitalize" (click)="onCommentFunc(item, $event)">
+                <ion-icon class="icon-font-sm icon-color-secondary" slot="start" [name]="item.comment.icon"></ion-icon>
+                {{item.comment.number}} {{item.comment.text}}
+              </ion-button>
+            </ion-card>
+          </ion-col>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+    <ion-col size="12" class="ion-margin-top ion-padding-top"></ion-col>
+  </ion-row>
+</ion-grid>

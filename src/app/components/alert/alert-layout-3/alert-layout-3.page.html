@@ -1,0 +1,21 @@
+<!-- ALERT --COMPONENT 3 -->
+<ion-grid>
+  <ion-row>
+    <ion-col size="12" size-md="6" *ngFor="let item of data.items"
+    (click)="presentAlert(item, $event)">
+      <ion-card class="box-shadow border-radius">
+        <ion-item class="ion-no-padding transparent background-size" lines="none"
+        [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+        </ion-item>
+        <ion-item class="ion-align-self-center transparent ion-no-padding " lines="none">
+          <ion-label class="padding-half">
+            <h1 class="text-size-md text-color-primary font-bold ion-text-wrap">
+              {{item.title}}</h1>
+            <p class="text-size-p text-color-primary font-regular ion-text-wrap">
+              {{item.description}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

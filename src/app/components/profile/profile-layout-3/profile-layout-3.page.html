@@ -1,0 +1,96 @@
+<!--Profile- Profile 1-->
+  <ion-grid class="ion-no-padding" *ngIf="data != null">
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="ion-no-margin box-shadow no-border-radius">
+          <ion-item class="transparent" lines="none">
+            <ion-avatar slot="start">
+              <img [src]="data.image" alt="">
+            </ion-avatar>
+            <ion-label class="ion-padding-start">
+              <h1 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                {{data.title}}</h1>
+              <p class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+                {{data.subtitle}}</p>
+            </ion-label>
+          </ion-item>
+          <div class="social-share">
+            <!-- Followers-->
+            <ion-item class="transparent" lines="none">
+              <ion-label class="ion-text-center">
+                <span class="text-size-sm text-color-accent font-medium">
+                  {{data.valueFollowers}}</span>
+                <div class="clearfix"></div>
+                <h2 class="text-size-sm text-color-accent font-medium">
+                  {{data.followers}}</h2>
+              </ion-label>
+            </ion-item>
+            <!-- Following -->
+            <ion-item class="transparent" lines="none">
+              <ion-label class="ion-text-center">
+                <span class="text-size-sm text-color-accent font-medium">
+                  {{data.valueFollowing}}</span>
+                <div class="clearfix"></div>
+                <h2 class="text-size-sm text-color-accent font-medium">
+                  {{data.following}}</h2>
+              </ion-label>
+            </ion-item>
+            <!-- Post -->
+            <ion-item class="transparent" lines="none">
+              <ion-label class="ion-text-center">
+                <span class="text-size-sm text-color-accent font-medium">
+                  {{data.valuePosts}}</span>
+                <div class="clearfix"></div>
+                <h2 class="text-size-sm text-color-accent font-medium">
+                  {{data.posts}}</h2>
+              </ion-label>
+            </ion-item>
+          </div>
+          <ion-row class="padding-half">
+            <ion-col size="6" class="padding-half">
+              <ion-button class="box-shadow default-button
+              ion-text-capitalize" expand="block">{{data.follow}}</ion-button>
+            </ion-col>
+            <ion-col size="6" class="padding-half">
+              <ion-button class="box-shadow default-button
+              ion-text-capitalize" expand="block">{{data.message}}</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-top">
+        <!-- Name Category -->
+        <h1 class="ion-text-uppercase ion-no-margin text-size-sm
+        text-color-accent font-bold ion-text-center">{{data.category}}</h1>
+      </ion-col>
+      </ion-row>
+      <ion-row class="padding-half">
+      <ion-col size="12" size-md="4" class="ion-text-center padding-half"
+      *ngFor="let item of data.items;let i = index"
+      (click)="onItemClickFunc(item, $event)">
+        <ion-card class="ion-no-padding ion-text-center
+        box-shadow border-radius ion-no-margin">
+          <ion-img [src]="item.backgroundCard" alt=""></ion-img>
+          <ion-card-content>
+            <span class="text-size-xs text-color-secondary
+            font-bold ion-text-capitalize">{{item.category}}</span>
+            <h1 class="text-size-md ion-text-wrap text-color-primary
+            font-medium ion-padding-top">{{item.title}}</h1>
+          </ion-card-content>
+          <ion-button class="button-icon ion-text-capitalize"
+          (click)="onLikeFunc(item, $event)">
+            <ion-icon class="icon-font-sm icon-color-secondary" slot="start"
+            [ngClass]="{'active' : item.like.isActive}"
+            [name]="item.like.icon"></ion-icon>
+            {{item.like.number}} {{item.like.text}}
+          </ion-button>
+          <ion-button class="button-icon ion-text-capitalize"
+          (click)="onCommentFunc(item, $event)">
+            <ion-icon class="icon-font-sm icon-color-secondary"
+            slot="start" [name]="item.comment.icon"></ion-icon>
+            {{item.comment.number}} {{item.comment.text}}
+          </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>

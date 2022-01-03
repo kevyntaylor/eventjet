@@ -1,0 +1,57 @@
+<!-- GOOGLE CARD --COMPONENT 2 -->
+<ion-content>
+  <ion-grid *ngIf="data != null">
+    <ion-row>
+      <ion-col size="12" size-sm="6" *ngFor="let item of data.items">
+        <ion-card class="ion-text-start box-shadow ion-no-margin
+        border-radius" (click)="onItemClickFunc(item, $event)">
+          <div class="background-size"
+          [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+            <span class="new-category border-radius-right">
+              {{item.priceText}}
+              <div class="clearfix"></div>
+              {{item.price}}
+            </span>
+          </div>
+          <!---SeeAll-->
+          <ion-chip class="ion-float-right transparent">
+            <ion-label class="text-color-primary font-size-md font-regular">
+              {{item.seeAll}}</ion-label>
+            <ion-icon class="icon-font-sm icon-color-secondary"
+            name="arrow-forward"></ion-icon>
+          </ion-chip>
+          <div class="slider clearfix">
+            <ion-card class="border-radius box-shadow background-size"
+            *ngFor="let item of item.gallery"
+            [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+            </ion-card>
+          </div>
+          <!--Card content-->
+          <ion-card-content class="ion-no-padding">
+            <ion-item lines="none" class="transparent ion-padding-bottom">
+              <ion-icon class="icon-round icon-font-lg icon-color-primary
+              ion-no-margin" slot="start" [name]="item.icon"></ion-icon>
+              <!--Card title-->
+              <ion-label class="ion-padding-start">
+                <h2 class="text-size-xl text-color-primary font-bold
+                ion-text-wrap ion-no-margin">{{item.title}}</h2>
+              </ion-label>
+              <!-- Share Button --->
+              <ion-button fill="clear" slot="end">
+                <ion-icon class="icon-font-md icon-color-secondary"
+                slot="icon-only" [name]="item.shareIcon"></ion-icon>
+              </ion-button>
+            </ion-item>
+            <!--Card description-->
+            <h3 class="text-size-sm text-color-primary font-regular
+            ion-text-wrap ion-padding-end ion-padding-start">
+            {{item.description}}</h3>
+            <ion-button class="ion-margin default-button box-shadow" expand="block">
+              {{item.button}}
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

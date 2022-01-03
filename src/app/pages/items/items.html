@@ -1,0 +1,25 @@
+<!-- Header -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-list *ngIf="pages.length">
+          <ion-item class="default-item ion-menu-toggle" lines="none" *ngFor="let item of pages" (click)="openPage(item)">
+            <ion-label>
+              <h1 class="text-size-md text-color-primary font-regular">{{item.title}}</h1>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

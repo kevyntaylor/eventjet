@@ -1,0 +1,23 @@
+<!---Theme Gallery for Full gallery 1-->
+<ion-grid *ngIf="data != null">
+  <ion-row>
+    <ion-col size="12" size-md="6" *ngFor="let group of data.items; let i = index">
+      <ion-card class="ion-no-margin background-size box-shadow border-radius"
+      (click)="onItemClickFunc(group, i, $event)"
+      [ngStyle]="{'background-image': 'url(' + group.image + ')'}">
+        <ion-card-content class="ion-no-padding">
+          <ion-item class="transparent" lines="none">
+            <ion-icon class="icon-round icon-color-accent" slot="start"
+            [name]="group.icon"></ion-icon>
+            <ion-label class="ion-padding-start">
+              <h2 class="text-size-xl text-color-light font-bold ion-text-wrap">
+                {{group.title}}</h2>
+              <h3 class="text-size-sm text-color-light font-regular ion-text-wrap">
+                {{group.items.length}} image(s)</h3>
+            </ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

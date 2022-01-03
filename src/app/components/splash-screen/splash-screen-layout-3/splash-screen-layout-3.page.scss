@@ -1,0 +1,37 @@
+ion-grid,
+ion-row{
+  height: 100%;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes animationLogo3 {
+    0% {top: 30%; opacity: 0;}
+    100%{top: 50%;; opacity: 1;}
+}
+
+@keyframes animationLogo3 {
+  0% {top: 30%; opacity: 0;}
+  100%{top: 50%;; opacity: 1;}
+}
+
+.logo {
+  position: absolute;
+  display: block;
+  width: 120px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); /* WebKit */
+  -moz-transform: translate(-50%, -50%); /* Mozilla */
+  -o-transform: translate(-50%, -50%); /* Opera */
+  -ms-transform: translate(-50%, -50%); /* Internet Explorer */
+  -webkit-animation: animationLogo3 3s;
+  /* Safari 4+ */
+  -moz-animation: animationLogo3 3s;
+  /* Fx 5+ */
+  -o-animation: animationLogo3 3s;
+  /* Opera 12+ */
+  animation: animationLogo3 3s;
+  animation-fill-mode: forwards;
+  /* IE 10+, Fx 29+ */
+}

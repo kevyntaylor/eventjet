@@ -1,0 +1,32 @@
+/* Style component 1
+========================================================*/
+.collapsible-header {
+  padding: 8px 8px 0;
+
+  .default-item {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+/* Settings Accordion "OPEN" */
+
+.item-accordion {
+  -moz-transition: all 400ms;
+  -ms-transition: all 400ms;
+  -o-transition: all 400ms;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+  max-height: 0;
+  display: block !important;
+  overflow: hidden;
+
+  &.active {
+    -moz-transition: all 400ms;
+    -ms-transition: all 400ms;
+    -o-transition: all 400ms;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+    overflow: visible;
+    max-height: 999px;
+  }
+}

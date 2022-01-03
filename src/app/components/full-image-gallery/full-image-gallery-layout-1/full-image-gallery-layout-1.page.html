@@ -1,0 +1,10 @@
+<!-- FULL GALLERY --COMPONENT 1 -->
+<ion-content>
+  <ion-slides #slider pager="true"
+  [options]="sliderOptions"
+  [initialSlide]="data.index">
+    <ion-slide *ngFor="let item of data.items">
+      <ion-img [src]="item.image"></ion-img>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

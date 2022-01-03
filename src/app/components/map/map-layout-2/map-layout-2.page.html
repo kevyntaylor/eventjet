@@ -1,0 +1,82 @@
+<!--Google Maps Gmaps + About Us-->
+<ion-page class="ion-page" *ngIf="viewEntered && data != null">
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-grid class="ion-no-padding background-secondary">
+      <ion-row>
+        <ion-col size="12" class="ion-padding-start ion-padding-end">
+          <!-- Maps Title-->
+          <h1 class="text-size-md text-wrap text-color-accent font-regular">
+            {{data.title}}</h1>
+          <!-- Maps Subttitle-->
+          <h2 class="text-size-xl font-bold text-color-primary">
+            {{data.titleDescription}}</h2>
+          <h2 class="ion-padding-top text-size-md font-medium 
+          no-margin text-color-primary ion-text-wrap">{{data.contentTitle}}</h2>
+          <p class="text-wrap text-color-primary font-regular text-size-sm">
+            {{data.contentDescription}}</p>
+          <!---About Info-->
+          <ion-list lines="none" class="background-secondary">
+            <ion-item lines="none" class="ion-no-padding transparent">
+              <i slot="start"
+              class="icon {{data.iconLoacation}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-color-primary
+              text-size-p ion-padding-start">{{data.iconLoacationText}}</p>
+            </ion-item>
+            <ion-item lines="none" class="ion-no-padding transparent">
+              <i slot="start"
+              class="icon {{data.iconWatch}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-color-primary
+              text-size-p ion-padding-start">{{data.iconWatchText}}</p>
+            </ion-item>
+            <ion-item lines="none" class="ion-no-padding transparent">
+              <i slot="start"
+              class="icon {{data.iconPhone}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-color-primary
+              text-size-p ion-padding-start">{{data.iconPhoneText}}</p>
+            </ion-item>
+            <ion-item lines="none" class="ion-no-padding transparent">
+              <i slot="start"
+              class="icon {{data.iconEarth}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-color-primary
+              text-size-p ion-padding-start">{{data.iconEarthText}}</p>
+            </ion-item>
+            <ion-item lines="none" class="ion-no-padding transparent">
+              <i slot="start"
+              class="icon {{data.iconEmail}} icon-font-md icon-color-accent">
+            </i>
+              <p class="no-margin font-regular text-color-primary
+              text-size-p ion-padding-start">{{data.iconEmailText}}</p>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="12" *ngIf="data.map != null && data.map.lat != null">
+          <!---MAP TEXT-->
+          <h2 class="ion-margin-start text-size-xs text-color-primary">
+            {{data.titleMap}}</h2>
+          <agm-map [latitude]="data.map.lat"
+          [longitude]="data.map.lng"
+          [zoom]="data.map.zoom"
+          [mapTypeControl]="data.map.mapTypeControl"
+          [streetViewControl]="data.map.streetViewControl"
+          [styles]="data.map.styles">
+            <agm-marker [latitude]="data.map.lat"
+            [longitude]="data.map.lng"></agm-marker>
+          </agm-map>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-page>

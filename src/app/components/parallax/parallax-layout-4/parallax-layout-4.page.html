@@ -1,0 +1,55 @@
+<ion-header [ngClass]="{'active': isHeaderVisible }">
+  <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--- Theme Parallax News -->
+<ion-page class="ion-page">
+  <!--- Header Big Image-->
+  <ion-content scrollEvents="true" parallax-header *ngIf="data != null"
+  (ionScroll)="scrolling($event)">
+    <div class="header-image background-size"
+    [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+      <div class="title-block">
+        <ion-item class="transparent" lines="none">
+          <ion-label>
+            <h1 class="text-size-xl text-color-light font-bold ion-text-wrap">
+              {{data.title}}</h1>
+            <h2 class="text-size-md text-color-light font-regular ion-text-wrap">
+              {{data.subtitle}}</h2>
+          </ion-label>
+          <ion-button fill="clear" *ngIf="data != null">
+            <ion-icon slot="icon-only" class="icon-font-md icon-color-primary"
+            [name]="data.shareIcon"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </div>
+    </div>
+    <!-- Content -->
+    <ion-grid class="ion-no-padding" *ngIf="data != null">
+      <ion-row>
+        <ion-col size="12">
+          <ion-list>
+            <ion-card *ngFor="let item of data.items">
+              <ion-item class="ion-no-padding transparent" lines="none">
+                <ion-img [src]="item.image"></ion-img>
+              </ion-item>
+              <ion-item class="ion-align-self-center
+              transparent ion-no-padding" lines="none">
+                <ion-label class="ion-padding-start">
+                  <h1 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                    {{item.title}}</h1>
+                  <h2 class="text-size-sm text-color-primary font-regular ion-text-wrap">
+                    {{item.description}}</h2>
+                </ion-label>
+              </ion-item>
+            </ion-card>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-page>

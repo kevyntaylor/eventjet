@@ -1,0 +1,42 @@
+/* Settings Button
+===========================================*/
+
+.page1 {
+  .active {
+    color: var(--cs-icon-color-accent, #2ABDCE) !important;
+  }
+
+  ion-avatar {
+    height: 120px !important;
+    width: 120px !important;
+    margin: 10px auto !important;
+  }
+
+  .social-share {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  ion-slides {
+    padding-bottom: 30px !important;
+
+    ion-slide {
+      ion-card {
+        width: 100%;
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+      }
+    }
+  }
+}
+
+.page5 {
+  .sebm-google-map-container {
+    height: 350px;
+  }
+}

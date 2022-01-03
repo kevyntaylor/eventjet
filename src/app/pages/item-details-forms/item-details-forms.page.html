@@ -1,0 +1,46 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content>
+
+    <!-- PAGE 1 -->
+    <cs-forms-layout-1
+    *ngIf="isType(0)"
+    [data]="data"
+    (onSubmit)="onSubmit($event)">
+    </cs-forms-layout-1>
+
+    <!-- PAGE 2 -->
+    <cs-forms-layout-2
+    *ngIf="isType(1)"
+    [data]="data"
+    (onRates)="onRates($event)"
+    (onSubmit)="onSubmit($event)">
+    </cs-forms-layout-2>
+
+    <!-- PAGE 3 -->
+    <cs-forms-layout-3
+    *ngIf="isType(2)"
+    [data]="data"
+    (onSubmit)="onSubmit($event)">
+    </cs-forms-layout-3>
+
+    <!-- PAGE 4 -->
+    <cs-forms-layout-4
+    *ngIf="isType(3)"
+    [data]="data"
+    (onRates)="onRates($event)"
+    (onAddImage)="onAddImage($event)"
+    (onSubmit)="onSubmit($event)">
+    </cs-forms-layout-4>
+
+  </ion-content>
+</ion-app>

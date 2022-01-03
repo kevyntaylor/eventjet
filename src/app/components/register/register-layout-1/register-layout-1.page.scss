@@ -1,0 +1,50 @@
+/* Style component 1
+========================================================*/
+ion-content {
+
+  ion-grid,
+  ion-row {
+    height: 100%;
+
+    img {
+      max-width: 170px;
+      max-height: 40px;
+      margin: 0 auto;
+    }
+
+    ion-item {
+      --inner-padding-end: 0;
+    }
+
+    form {
+      border-radius: 14px;
+      box-shadow: 0 3px 13px rgba(0, 0, 0, 0.16);
+      background: var(--cs-background-secondary, #fff);
+
+      ion-item {
+        ion-input {
+          --background: transparent !important;
+          --padding-bottom: 10px;
+          --padding-end: 0;
+          --padding-start: 0;
+          --padding-top: 10px;
+          margin: 16px 16px !important;
+          width: calc(100% - 32px);
+          box-shadow: 0 3px 13px rgba(0, 0, 0, 0.16);
+        }
+
+        ion-icon {
+          position: absolute;
+          right: 25px;
+          bottom: 26px;
+          z-index: 999;
+        }
+
+        ion-label {
+          transform: none;
+          margin: 5px 0 0 0 !important;
+        }
+      }
+    }
+  }
+}

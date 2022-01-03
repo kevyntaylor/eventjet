@@ -1,0 +1,73 @@
+/* Style component 1
+========================================================*/
+
+ion-card {
+  position: relative;
+  height: 250px;
+  display: flex;
+  align-items: center;
+
+  &.background-size {
+    background-position: -40px center !important;
+
+    &::after {
+      content: "";
+      background: var(--cs-gradient-image);
+      position: absolute;
+      height: 50%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  ion-card-title {
+    z-index: 99;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .info-section {
+    background-color: var(--cs-background-accent, #2ABDCE);
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+  }
+
+  ion-card-content {
+    background-color: var(--cs-background-secondary, #FFFFFF);
+    position: absolute;
+    right: 0;
+    display: flex !important;
+    align-items: center;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    transform: translateX(100%);
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+  }
+
+  ion-icon {
+    transition: all 400ms;
+  }
+
+  &.active {
+    ion-icon {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+
+    ion-card-content {
+      padding-right: 56px;
+      transform: translateX(0%) !important;
+    }
+  }
+}

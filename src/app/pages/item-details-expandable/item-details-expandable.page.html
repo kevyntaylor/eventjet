@@ -1,0 +1,28 @@
+
+      <!-- PAGE 1 -->
+      <cs-expandable-list-layout-1
+        *ngIf="isType(0)"
+        [data]="data"
+        (onFavorite)="onFavorite($event)"
+        (onLike)="onLike($event)"
+        (onShare)="onShare($event)"
+        (onItemClick)="onItemClick($event)">
+      </cs-expandable-list-layout-1>
+
+      <!-- PAGE 2 -->
+      <cs-expandable-list-layout-2
+        *ngIf="isType(1)"
+        [data]="data"
+        (onItemClick)="onItemClick($event)"
+        (onRates)="onRates($event)">
+      </cs-expandable-list-layout-2>
+
+      <!-- PAGE 3 -->
+      <cs-expandable-list-layout-3
+        *ngIf="isType(2)"
+        [data]="data"
+        (onItemClick)="onItemClick($event)"
+        (onRates)="onRates($event)"
+        (onCheckBoxClick)="onCheckBoxClick($event)"
+        (onButtonClick)="onButtonClick($event)">
+      </cs-expandable-list-layout-3>

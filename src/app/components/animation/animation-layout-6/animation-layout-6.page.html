@@ -1,0 +1,27 @@
+<!-- ANIMATION --COMPONENT 6 -->
+<ion-grid *ngIf="data && data.items">
+  <ion-row appAnimateItems className="fadeIn">
+    <ion-col size="12" size-md="6" size-lg="4"
+    *ngFor="let item of data.items"
+    class="animation-normal opacity-0">
+      <ion-card class="border-radius box-shadow ion-text-center
+      ion-no-margin" (click)="onItemClickFunc(item, $event)">
+        <ion-item lines="none">
+          <ion-label>
+            <h2 class="text-size-xl text-color-primary
+            font-regular ion-text-wrap">{{item.title}}</h2>
+          </ion-label>
+          <ion-badge class="box-shadow margin-half" slot="end">
+            {{item.price}}</ion-badge>
+        </ion-item>
+        <ion-img [src]="item.image"></ion-img>
+        <ion-card-content class="ion-text-center">
+          <h3 class="text-size-md text-color-light font-regular ion-text-wrap">
+            {{item.category}}</h3>
+          <h2 class="text-size-xl text-color-light font-bold ion-text-wrap">
+            {{item.subtitle}}</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

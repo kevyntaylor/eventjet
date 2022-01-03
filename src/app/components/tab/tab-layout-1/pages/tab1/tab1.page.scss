@@ -1,0 +1,23 @@
+// Setting background size
+
+.background-size {
+  height: 300px;
+  position: relative;
+}
+
+.info-block {
+  margin-top: -70px;
+
+  ion-avatar {
+    margin: 10px auto;
+    height: 120px;
+    width: 120px;
+  }
+}
+ion-item {
+  --inner-padding-end: 0;
+}
+
+  ion-img {
+    overflow: hidden;
+  }

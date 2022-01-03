@@ -1,0 +1,38 @@
+<ion-content>
+  <ion-grid *ngIf="data != null">
+    <ion-row>
+      <ion-col size="12" size-md="6"  *ngFor="let item of data.items">
+        <ion-card class="ion-no-padding ion-no-margin box-shadow">
+          <div class="big-image background-size "
+          [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+            <ion-button class="button-icon ion-text-capitalize">
+              <ion-icon class="icon-font-md icon-color-accent "
+              slot="start" [name]="item.icon"></ion-icon>
+              {{item.iconText}}
+            </ion-button>
+          </div>
+          <ion-card-content class="ion-text-center">
+            <h1 class="text-size-xl font-bold text-color-primary ion-text-wrap">
+              {{item.title}}</h1>
+            <div class="clearfix"></div>
+            <div class="rating ion-padding-top">
+              <!-- Icon Rating Star -->
+              <div class="ion-float-start ion-text-center"
+              *ngFor="let item of item.ratingStar.iconsStars;let i = index"
+              (click)="onStarClass(group.items.iconsStars, i, $event);">
+                <i *ngIf="item.isActive" class="icon {{item.iconActive}}
+                icon-font-sm icon-color-accent"></i>
+                <i *ngIf="!item.isActive" class="icon {{item.iconInactive}}
+                icon-font-sm icon-color-accent"></i>
+              </div>
+            </div>
+            <h3 class="text-size-sm font-regular text-color-primary ion-text-wrap">
+              {{item.reviews}}</h3>
+            <p class="text-size-p font-regular text-color-secondary ion-text-wrap">
+              {{item.description}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

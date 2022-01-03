@@ -1,0 +1,84 @@
+<!-- ANIMATION --COMPONENT 10 -->
+
+<ion-grid class="ion-no-padding" *ngIf="viewEntered">
+  <ion-row class="ion-padding-top" appAnimateItems className="zoomIn" *ngIf="data && data.items">
+    <ion-col class="animation-normal opacity-0" size="12">
+      <h2 class="ion-padding-start text-size-sm text-color-primary
+      ion-no-margin font-bold">{{data.title}}</h2>
+      <ion-slides pager="true" class="top-stories">
+        <ion-slide *ngFor="let item of data.items"
+        (click)="onItemClickFunc(item, $event)">
+          <ion-col size="12">
+            <ion-card class="ion-no-padding box-shadow border-radius ion-text-left">
+              <ion-item class="transparent" lines="none">
+                <ion-avatar slot="start">
+                  <img [src]="item.avatar" />
+                </ion-avatar>
+                <ion-label class="ion-padding-start">
+                  <h2 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                    {{item.avatarTitle}}</h2>
+                  <h3 class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+                    {{item.avatarSubtitle}}</h3>
+                </ion-label>
+                <ion-button fill="clear" slot="end">
+                  <ion-icon class="icon-font-md icon-color-secondary"
+                  slot="icon-only" [name]="data.shareIcon"></ion-icon>
+                </ion-button>
+              </ion-item>
+              <div class="background-size"
+              [ngStyle]="{'background-image': 'url(' + item.backgroundCard + ')'}">
+              </div>
+              <ion-card-content class="ion-text-left">
+                <h2 class="text-size-xs text-color-secondary
+                font-regular ion-text-capitalize">{{item.category}}</h2>
+                <h1 class="text-size-md text-wrap text-color-primary
+                font-bold">{{item.title}}</h1>
+                <p class="text-size-p text-wrap text-color-secondary
+                font-regular">{{item.description}}</p>
+                <ion-button class="button-icon ion-text-capitalize"
+                (click)="onLikeFunc(item, $event)">
+                  <ion-icon class="icon-font-sm icon-color-secondary"
+                  slot="start" [name]="item.likeIcon"></ion-icon>
+                  {{item.likeNumber}} {{item.likeText}}
+                </ion-button>
+                <ion-button class="button-icon ion-text-capitalize"
+                (click)="onCommentFunc(item, $event)">
+                  <ion-icon class="icon-font-sm icon-color-secondary"
+                  slot="start" [name]="item.commentIcon"></ion-icon>
+                  {{item.commentNumber}} {{item.commentText}}
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+  <ion-row appAnimateItems className="fadeInRight">
+    <ion-col size="12" class="animation-normal opacity-0">
+      <ion-item lines="none" class="transparent">
+        <h1 class="ion-no-margin text-color-primary font-bold
+        text-size-sm "slot="start">{{data.recommender}}</h1>
+        <ion-button class="button-icon ion-text-capitalize" slot="end" fill="clear">
+          {{data.buttonSeeAll}}
+          <ion-icon class="icon-font-sm icon-color-secondary" slot="end"
+          [name]="data.iconMore"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" class="slider animation-normal opacity-0" >
+      <ion-card class="box-shadow ion-no-padding border-radius"
+      *ngFor="let item of data.category;" (click)="onItemClickFunc(item, $event)">
+        <div class="background-size"
+        [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+        </div>
+        <ion-card-content>
+          <h2 class="text-size-sm text-color-primary font-bold ion-text-wrap">
+            {{item.title}}</h2>
+          <h3 class="text-size-p text-color-primary font-regular ion-text-wrap">
+            {{item.subtitle}}</h3>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

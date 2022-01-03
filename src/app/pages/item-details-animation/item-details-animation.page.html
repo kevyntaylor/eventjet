@@ -1,0 +1,103 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize" *ngIf="data != null">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content>
+
+    <!-- PAGE 1 -->
+    <cs-animation-layout-1
+      *ngIf="isType(0)"
+      [data]="data.items"
+      (onItemClick)="onItemClick($event)">
+    </cs-animation-layout-1>
+
+    <!-- PAGE 2 -->
+    <cs-animation-layout-2
+    *ngIf="isType(1)"
+    [data]="data"
+    (onProceed)="onProceed($event)"
+    (onItemClick)="onItemClick($event)">
+    </cs-animation-layout-2>
+
+    <!-- PAGE 3 -->
+    <cs-animation-layout-3
+    *ngIf="isType(2)"
+    [data]="data"
+    (onFab)="onFab($event)"
+    (onShare)="onShare($event)"
+    (onLike)="onLike($event)"
+    (onFavorite)="onFavorite($event)"
+    (onItemClick)="onItemClick($event)">
+    </cs-animation-layout-3>
+
+    <!-- PAGE 4 -->
+    <cs-animation-layout-4
+    *ngIf="isType(3)"
+    [data]="data"
+    (onFab)="onFab($event)"
+    (onShare)="onShare($event)"
+    (onLike)="onLike($event)"
+    (onExplore)="onExplore($event)"
+    (onFavorite)="onFavorite($event)"
+    (onItemClick)="onItemClick($event)">
+    </cs-animation-layout-4>
+
+    <!-- PAGE 5 -->
+    <cs-animation-layout-5
+    *ngIf="isType(4)"
+    [data]="data"
+    (onItemClick)="onItemClick($event)">
+    </cs-animation-layout-5>
+
+    <!-- PAGE 6 -->
+    <cs-animation-layout-6
+    *ngIf="isType(5)"
+    [data]="data"
+    (onItemClick)="onItemClick($event)">>
+    </cs-animation-layout-6>
+
+    <!-- PAGE 7 -->
+    <cs-animation-layout-7
+    *ngIf="isType(6)"
+    [data]="data"
+    (onFavorite)="onFavorite($event)"
+    (onLike)="onLike($event)"
+    (onShare)="onShare($event)"
+    (onItemClick)="onItemClick($event)">
+    </cs-animation-layout-7>
+
+    <!-- PAGE 8 -->
+    <cs-animation-layout-8
+    *ngIf="isType(7)"
+    [data]="data"
+    (onLogin)="onItemClick($event)">
+    </cs-animation-layout-8>
+
+    <!-- PAGE 9 -->
+    <cs-animation-layout-9
+    *ngIf="isType(8)"
+    (onComment)="onComment($event)"
+    (onItemClick)="onItemClick($event)"
+    (onLike)="onLike($event)"
+    [data]="data">
+    </cs-animation-layout-9>
+
+    <!-- PAGE 10 -->
+    <cs-animation-layout-10
+    *ngIf="isType(9)"
+    [data]="data"
+    (onFavorite)="onFavorite($event)"
+    (onLike)="onLike($event)"
+    (onShare)="onShare($event)"
+    (onItemClick)="onItemClick($event)">
+    </cs-animation-layout-10>
+
+  </ion-content>
+</ion-app>

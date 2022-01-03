@@ -1,0 +1,21 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content class="background-secondary">
+
+    <!-- PAGE 1-->
+    <cs-payment-layout-1
+    [data]="data"
+    (onPay)="onPay($event)">
+    </cs-payment-layout-1>
+
+  </ion-content>
+</ion-app>

@@ -1,0 +1,17 @@
+<ion-list class="background-secondary default-item" *ngIf="data != null">
+<ion-item lines="none">
+  <ion-label class="text-size-sm text-color-secondary font-regular
+  ion-text-capitalize">{{data.header}}</ion-label>
+</ion-item>
+<ion-item class="ion-margin-bottom" lines="none" *ngIf="data != null">
+    <ion-label class="text-size-sm text-color-primary font-regular">
+      {{data.title}}</ion-label>
+    <ion-select [(ngModel)]="data.selectedItem" multiple="false"
+    interface="action-sheet"
+        (ionChange)="onChangeFunc($event)">
+        <ion-select-option *ngFor="let item of data.items"
+        [value]="item.id">{{item.title}}
+        </ion-select-option>
+    </ion-select>
+</ion-item>
+</ion-list>

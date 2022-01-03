@@ -1,0 +1,34 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{item.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content class="transparent">
+    <ion-grid class="background-size" [ngStyle]="{'background-image': 'url(' + item.background + ')'}">
+      <ion-row>
+        <ion-col size="12" class="ion-align-items-center ion-align-self-end">
+          <div class="ion-text-center">
+            <h2 class="text-size-md text-color-primary font-bold">
+              {{item.title}}<br />
+              {{item.subtitle}}
+            </h2>
+            <h3 class="text-size-sm text-color-primary font-regular ion-text-uppercase">{{item.subtitle2}}</h3>
+          </div>
+        </ion-col>
+        <ion-col size="12" class="ion-align-self-end">
+          <ion-item lines="none" [href]="item.link">
+            <ion-label>
+              <p class="ion-text-wrap text-size-sm text-color-primary font-regular">{{item.description}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>

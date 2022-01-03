@@ -1,0 +1,16 @@
+/* Style component 3
+========================================================*/
+
+ion-grid {
+  height: 100%;
+  background: var(--cs-background-secondary, #FFFFFF);
+
+  ion-row {
+    height: 100%;
+  }
+}
+
+ion-item {
+  background: var(--cs-background-secondary, #FFFFFF);
+  border-radius: 24px;
+}

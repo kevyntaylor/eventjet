@@ -1,0 +1,155 @@
+<!--Profile- Profile 1-->
+<ion-grid class="background-secondary ion-no-padding" *ngIf="data != null">
+  <ion-row>
+    <ion-col size="12">
+      <ion-card class="ion-no-padding ion-no-margin
+        ion-text-center no-border-radius background-size" *ngIf="data != null"
+        [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+        <ion-avatar>
+          <img [src]="data.image" alt="">
+        </ion-avatar>
+        <ion-card-content>
+          <h1 class="text-size-md text-color-light font-bold ion-text-wrap">
+            {{data.title}}</h1>
+          <p class="text-size-sm text-color-light font-light ion-text-wrap">
+            {{data.subtitle}}</p>
+        </ion-card-content>
+        <div class="social-share ion-margin-bottom">
+          <!-- Followers-->
+          <ion-item class="transparent" lines="none" (click)="buttonClick()">
+            <ion-label class="ion-text-center">
+              <span class="text-size-sm text-color-light font-regular">
+                {{data.valueFollowers}}</span>
+              <h2 class="text-size-sm text-color-light font-regular">
+                {{data.followers}}</h2>
+            </ion-label>
+          </ion-item>
+          <!-- Following -->
+          <ion-item class="transparent" lines="none" (click)="buttonClick()">
+            <ion-label class="ion-text-center">
+              <span class="text-size-sm text-color-light font-regular">
+                {{data.valueFollowing}}</span>
+              <h2 class="text-size-sm text-color-light font-regular">
+                {{data.following}}</h2>
+            </ion-label>
+          </ion-item>
+          <!-- Post -->
+          <ion-item class="transparent" lines="none" (click)="buttonClick()">
+            <ion-label class="ion-text-center">
+              <span class="text-size-sm text-color-light font-regular">
+                {{data.valuePosts}}</span>
+              <h2 class="text-size-sm text-color-light font-regular">
+                {{data.posts}}</h2>
+            </ion-label>
+          </ion-item>
+        </div>
+        <!-- Social Button-->
+        <ion-button class="ion-margin-bottom" fill="clear" (click)="onFacebookFunc(data, $event)">
+          <ion-icon class="icon-font-xl icon-color-primary" slot="icon-only" [name]="data.logoFacebook"></ion-icon>
+        </ion-button>
+        <ion-button class="ion-margin-bottom" fill="clear" (click)="onTwitterFunc(data, $event)">
+          <ion-icon slot="icon-only" class="icon-font-xl icon-color-primary" [name]="data.logoTwitter"></ion-icon>
+        </ion-button>
+        <ion-button class="ion-margin-bottom" fill="clear" (click)="onInstagramFunc(data, $event)">
+          <ion-icon slot="icon-only" class="icon-font-xl
+            icon-color-primary" [name]="data.logoInstagram"></ion-icon>
+        </ion-button>
+      </ion-card>
+      <!-- Info Author-->
+      <ul class="collapsible ion-no-margin ion-no-padding">
+        <li *ngFor="let group of data.autorInfo;">
+          <div class="collapsible-header">
+            <ion-item lines="none" class="transparent">
+              <ion-label>
+                <h2 class="text-color-primary font-bold text-size-md">
+                  {{group.title}}</h2>
+              </ion-label>
+              <ion-button class="button-icon ion-text-capitalize" slot="end" (click)="toggleGroup(group)">
+                {{group.buttonReadMore}}
+                <ion-icon class="icon-font-sm icon-color-secondary" slot="end" [name]="group.iconMore"></ion-icon>
+              </ion-button>
+            </ion-item>
+            <h3 class="ion-padding-start ion-padding-end ion-no-margin
+              text-color-primary font-medium text-size-p">{{group.subtitle}}</h3>
+          </div>
+          <!-- List big image Body -->
+          <div class="item-accordion" [ngClass]="{'active': group.show }" [hidden]="!group.show">
+            <div *ngFor="let item of group.expandItems;">
+              <ion-item lines="none" class="transparent">
+                <ion-label>
+                  <h1 class="text-color-primary font-medium text-size-sm">
+                    {{item.content}}</h1>
+                </ion-label>
+              </ion-item>
+              <ion-item lines="none" class="transparent">
+                <ion-icon class="icon-font-sm icon-color-accent" [name]="item.iconPhone">
+                </ion-icon>
+                <ion-label class="ion-padding-start">
+                  <p class="text-color-primary font-medium text-size-p">
+                    {{item.phone}}</p>
+                </ion-label>
+              </ion-item>
+              <ion-item lines="none" class="transparent">
+                <ion-icon class="icon-font-sm icon-color-accent" [name]="item.iconMail">
+                </ion-icon>
+                <ion-label class="ion-padding-start">
+                  <p class="text-color-primary font-medium text-size-p">
+                    {{item.mail}}</p>
+                </ion-label>
+              </ion-item>
+              <ion-item lines="none" class="transparent">
+                <ion-icon class="icon-font-sm icon-color-accent" [name]="item.iconGlobe">
+                </ion-icon>
+                <ion-label class="ion-padding-start">
+                  <p class="text-color-primary font-medium text-size-p">
+                    {{item.globe}}</p>
+                </ion-label>
+              </ion-item>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!--List active friends-->
+      <ion-col size="12">
+        <ion-item lines="none" class="transparent">
+          <h1 class="ion-no-margin text-color-primary font-bold text-size-sm" slot="start">{{data.listFriends}}</h1>
+          <h3 class="ion-no-margin text-color-primary font-medium text-size-sm
+            ion-padding-start" slot="start">{{data.activeFriends}}</h3>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="slider padding-half">
+        <ion-card class="no-box-shadow ion-no-padding overflow-visible" *ngFor="let item of data.friends;">
+          <ion-avatar>
+            <ion-img [src]="item.image" [alt]="item.imageAlt"></ion-img>
+          </ion-avatar>
+          <ion-card-content class="ion-text-center ion-no-padding">
+            <h2 class="text-size-p text-color-primary font-bold ion-text-wrap">
+              {{item.title}}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-row class="padding-half gallery-list">
+        <ion-col class="padding-half" size="12">
+          <ion-item lines="none" class="transparent ion-no-padding">
+            <h1 class="ion-no-margin text-color-primary font-bold text-size-sm" slot="start">{{data.shots}}</h1>
+            <h3 class="ion-no-margin text-color-primary font-medium text-size-sm
+              ion-padding-start" slot="start">{{data.addimgs}}</h3>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-no-padding" size="4" *ngFor="let item of data.imgs">
+          <!--Gallery Card -->
+          <ion-card class="ion-no-padding border-radius box-shadow">
+            <ion-card-content class="ion-no-padding">
+              <ion-img [src]="item.image"></ion-img>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="12">
+      <ion-button class="ion-margin default-button
+        ion-text-capitalize box-shadow" expand="block">
+        {{data.buttonContact}}</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

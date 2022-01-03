@@ -1,0 +1,51 @@
+ion-toolbar {
+  color: var(--cs-text-light, #fff);
+}
+
+.ios {
+  ion-back-button,
+  ion-menu-button {
+    --color: var(--cs-text-light, #fff);
+  }
+}
+
+.active {
+  ion-toolbar {
+    background: var(--cs-gradient) !important;
+    color: var(--cs-text-light, #fff) !important;
+  }
+
+  .ios {
+    ion-back-button,
+    ion-menu-button {
+      --color: var(--cs-text-light, #fff) !important;
+    }
+  }
+}
+
+.header-image {
+  z-index: 999;
+  position: relative;
+}
+
+.background-size {
+  height: 300px;
+  position: relative;
+}
+
+ion-grid {
+  height: calc(100% - 350px) !important;
+  z-index: 1;
+  position: relative;
+}
+
+
+.page3 {
+  height: 100%;
+
+  agm-map,
+  ion-col,
+  ion-row {
+    height: 100%;
+  }
+}

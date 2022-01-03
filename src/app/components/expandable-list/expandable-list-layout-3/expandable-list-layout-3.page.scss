@@ -1,0 +1,39 @@
+/* Style component 3
+========================================================*/
+.collapsible-header {
+  padding: 8px 8px 0;
+
+  .default-item {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+/* SETTINGS ACCORDIAN "OPEN" */
+.item-accordion {
+  max-height: 0;
+  display: block !important;
+  -moz-transition: all 400ms;
+  -ms-transition: all 400ms;
+  -o-transition: all 400ms;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+  overflow: hidden;
+
+  &.active {
+    -moz-transition: all 400ms;
+    -ms-transition: all 400ms;
+    -o-transition: all 400ms;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+    overflow: visible;
+    max-height: 999px;
+  }
+}
+
+ion-footer {
+  background: var(--cs-background-primary, #F1F1F1) !important;
+}
+
+.footer-md:before {
+  background-image: none !important;
+}

@@ -1,0 +1,119 @@
+<ion-header [ngClass]="{'active': isHeaderVisible }">
+  <ion-toolbar class="transparent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--- Theme Parallax Basic -->
+<ion-page class="ion-page" *ngIf="viewEntered">
+  <!--- Header Big Image-->
+  <ion-content scrollEvents="true" parallax-header
+  *ngIf="data != null" (ionScroll)="scrolling($event)">
+    <div class="header-image">
+      <div class="background-size"
+      [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+      </div>
+        <ion-segment [(ngModel)]="selectedItem">
+          <ion-segment-button class="ion-text-capitalize" value="Page1">
+            <ion-label>
+              {{data.segmentButton1}}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="ion-text-capitalize" value="Page2">
+            <ion-label>
+              {{data.segmentButton2}}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="ion-text-capitalize" value="Page3">
+            <ion-label>
+              {{data.segmentButton3}}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    <!-- Content -->
+    <ion-grid *ngIf="isEnabled('Page1') && data.page1 != null">
+
+      <ion-row class="page1">
+        <ion-col class="background-primary" size="12" size-sm="6"
+        *ngFor="let item of data.page1.items">
+          <!--- Card -->
+          <ion-card class="box-shadow ion-no-margin border-radius">
+            <ion-item>
+              <!--- Avatar -->
+              <ion-avatar slot="start">
+                <img [src]="item.avatar">
+              </ion-avatar>
+              <ion-label class="ion-padding-start">
+                <!-- Avatar Title -->
+                <h2 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                  {{item.title}}</h2>
+                <!-- Avatar Subtitle -->
+                <h3 class="text-size-sm text-color-secondary font-regular">
+                  {{item.subtitle}}</h3>
+                <!-- Time -->
+                <span class="text-size-sm text-color-secondary font-regular">
+                  {{item.time}}</span>
+              </ion-label>
+              <ion-button slot="end" fill="clear">
+                <ion-icon slot="icon-only" class="icon-font-md icon-color-secondary"
+                [name]="item.iconShere"></ion-icon>
+              </ion-button>
+            </ion-item>
+            <!-- Card Big Image -->
+            <ion-img [src]="item.image"></ion-img>
+            <!-- Card Content -->
+            <ion-card-content>
+              <!-- Card Title -->
+              <h2 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                {{item.cardTitle}}</h2>
+              <!-- Card Description -->
+              <p class="text-size-p text-color-secondary font-regular ion-text-wrap">
+                {{item.description}}</p>
+              <!-- Buttons Like, Comment -->
+              <ion-button class="button-icon ion-text-capitalize">
+                <ion-icon slot="start" class="icon-font-sm icon-color-secondary"
+                [name]="item.iconLike"></ion-icon>
+                {{item.numberLike}}
+              </ion-button>
+              <ion-button class="button-icon ion-text-capitalize">
+                <ion-icon slot="start" class="icon-font-sm icon-color-secondary"
+                [name]="item.iconComment"></ion-icon>
+                {{item.numberCommnet}}
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid *ngIf="isEnabled('Page2') && data.page2 != null">
+      <ion-row class="page2">
+        <ion-col class="background-primary" size="4"
+        *ngFor="let item of data.page2.items">
+          <!--Gallery Card -->
+          <ion-card class="ion-no-padding ion-no-margin border-radius box-shadow">
+            <ion-img [src]="item.image"></ion-img>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid class="ion-no-padding page3" *ngIf="isEnabled('Page3') && data.page3 != null">
+      <ion-row>
+        <ion-col class="ion-no-padding" size="12">
+          <agm-map *ngIf="data != null" [latitude]="data.page3.map.lat"
+          [longitude]="data.page3.map.lng" [zoom]="data.page3.map.zoom"
+           [mapTypeControl]="data.page3.map.mapTypeControl"
+           [streetViewControl]="data.page3.map.streetViewControl"
+           [styles]="data.page3.map.styles">
+            <agm-marker [latitude]="data.page3.map.lat"
+             [longitude]="data.page3.map.lng">
+            </agm-marker>
+          </agm-map>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-content>
+</ion-page>

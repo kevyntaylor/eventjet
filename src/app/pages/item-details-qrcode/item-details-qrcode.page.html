@@ -1,0 +1,27 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content class="background-secondary">
+
+    <!-- PAGE 1 -->
+    <cs-qrcode-layout-1
+      *ngIf="isType(0)">
+    </cs-qrcode-layout-1>
+
+    <!-- PAGE 2 -->
+    <cs-qrcode-layout-2
+      *ngIf="isType(1)"
+      [data]="data"
+      (onButtonClick)="onButtonClick($event)">
+    </cs-qrcode-layout-2>
+
+  </ion-content>
+</ion-app>

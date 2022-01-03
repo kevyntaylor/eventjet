@@ -1,0 +1,45 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{headerTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="ion-no-padding" size="12">
+
+          <!-- Select 1 -->
+          <cs-select-layout-1 *ngIf="isType(0)" [data]="dataLayout1" (onChange)="onChange($event)">
+          </cs-select-layout-1>
+
+          <!-- Select 2 -->
+          <cs-select-layout-2 *ngIf="isType(0)" [data]="dataLayout2" (onChange)="onChange($event)">
+          </cs-select-layout-2>
+
+          <!-- Select 3 -->
+          <cs-select-layout-3 *ngIf="isType(0)" [data]="dataLayout3" (onChange)="onChange($event)">
+          </cs-select-layout-3>
+
+          <!-- Select 4 -->
+          <cs-select-layout-4 *ngIf="isType(0)" [data]="dataLayout4" (onChangeMonth)="onChangeMonth($event)" (onChangeYears)="onChangeYears($event)">
+          </cs-select-layout-4>
+
+          <!-- Select 5 -->
+          <cs-select-layout-5 *ngIf="isType(1)" [data]="dataLayout5" (onChange)="onChange($event)">
+          </cs-select-layout-5>
+
+          <!-- Select 6 -->
+          <cs-select-layout-6 *ngIf="isType(1)" [data]="dataLayout6" (onChangeMonth)="onChangeMonth($event)" (onChangeYears)="onChangeYears($event)">
+          </cs-select-layout-6>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>

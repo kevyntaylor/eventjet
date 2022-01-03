@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "483745578074",
+    "firebase_url": "https://miki-ionic-4.firebaseio.com",
+    "project_id": "miki-ionic-4",
+    "storage_bucket": "miki-ionic-4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483745578074:android:aa1c59d64eb051d0",
+        "android_client_info": {
+          "package_name": "com.csform.ionic4mikky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483745578074-9p73o6criql2r1qfp1g262ug4o7o2cuo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3YrMz2GNEUdwxCHKH7F4inD4dpkmYpWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483745578074-9p73o6criql2r1qfp1g262ug4o7o2cuo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

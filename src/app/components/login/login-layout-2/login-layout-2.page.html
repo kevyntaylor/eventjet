@@ -1,0 +1,95 @@
+<!-- lOGIN FROMA --COMPONENT 1 -->
+<ion-page class="ion-page">
+    <!-- Header -->
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title *ngIf="data != null" class="ion-text-capitalize">{{data.headerTitle}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  <!-- Content -->
+  <ion-content *ngIf="data != null" class="transparent background-size"
+  [ngStyle]="{'background-image': 'url(' + data.background + ')'}">
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-align-items-center ion-padding-horizontal" *ngIf="data != null">
+        <ion-col class="ion-text-center ion-margin-top" size="12" size-md="8" push-md="2">
+          <img class="ion-margin-bottom" [src]="data.logo"/>
+        </ion-col>
+        <ion-col size="12" size-md="8" push-md="2">
+          <!---Form-->
+          <form class="ion-margin-vertical ion-padding-vertical ion-text-center">
+            <!---Logo Title-->
+            <h1 class="text-size-md text-color-primary font-bold ion-text-wrap ion-padding-top">
+              {{data.title}}</h1>
+            <!---Input field username-->
+            <ion-item class="ion-no-padding ion-text-center" input lines="none">
+              <ion-label class="text-size-sd text-color-primary font-regular"
+              position="stacked">{{data.labelUsername}}</ion-label>
+              <ion-input required type="text" [placeholder]="data.username"
+              [(ngModel)]="item.username" [ngModelOptions]="{standalone: true}">
+            </ion-input>
+              <ion-icon *ngIf="!isUsernameValid" class="icon-font-sm error-color"
+              name="remove-circle"></ion-icon>
+            </ion-item>
+            <!---Input field password-->
+            <ion-item class="ion-no-padding ion-text-center" input lines="none">
+              <ion-label class="text-size-sd text-color-primary font-regular"
+              position="stacked">{{data.labelPassword}}</ion-label>
+              <ion-input required type="password" [placeholder]="data.password"
+              [(ngModel)]="item.password" [ngModelOptions]="{standalone: true}">
+            </ion-input>
+              <ion-icon *ngIf="!isPasswordValid" class="icon-font-sm error-color"
+              name="remove-circle"></ion-icon>
+            </ion-item>
+            <ion-button fill="clear"
+            class="clear-button ion-text-capitalize ion-float-end ion-margin-top
+            ion-margin-bottom" (click)="onForgotPassword()">
+              <span>{{data.forgotPassword}}</span></ion-button>
+            <div class="clearfix"> </div>
+            <ion-row class="padding-half">
+              <ion-col size="6" class="padding-half">
+                <!---Login ion-button-->
+                <ion-button
+                class="facebookButton box-shadow button-icon ion-text-capitalize
+                ion-margin-top ion-margin-bottom" expand="block" (click)="onLoginFunc()">
+                  <ion-icon
+                  class="icon-font-sm icon-color-accent" slot="end" name="logo-facebook">
+                </ion-icon>
+                  {{data.facebookLogin}}
+                </ion-button>
+              </ion-col>
+              <ion-col size="6" class="padding-half">
+                <!---Login ion-button-->
+                <ion-button
+                class="default-button box-shadow ion-text-capitalize
+                ion-margin-top ion-margin-bottom" expand="block"
+                (click)="onLoginFunc()">{{data.login}}</ion-button>
+              </ion-col>
+            </ion-row>
+            <div class="ion-text-center share-section ion-padding-horizontal">
+              <ion-button size="large" fill="clear" class="ion-margin-end">
+                <ion-icon class="icon-fon-xl icon-color-secondary" slot="icon-only"
+                name="logo-instagram"></ion-icon>
+              </ion-button>
+              <ion-button size="large" fill="clear">
+                <ion-icon class="icon-fon-xl icon-color-secondary" slot="icon-only"
+                 name="logo-pinterest"></ion-icon>
+              </ion-button>
+              <ion-button size="large" fill="clear" class="ion-margin-start">
+                <ion-icon class="icon-fon-xl icon-color-secondary" slot="icon-only"
+                name="logo-twitter"></ion-icon>
+              </ion-button>
+            </div>
+            <p class="text-size-sm text-color-primary font-regular">{{data.description}}</p>
+            <ion-button expand="block"
+            class="box-shadow ion-margin-top ion-margin-horizontal
+            default-button box-shadow ion-text-capitalize">{{data.register}}
+            </ion-button>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-page>

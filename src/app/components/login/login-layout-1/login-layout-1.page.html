@@ -1,0 +1,80 @@
+<!-- lOGIN FROMA --COMPONENT 1 -->
+<ion-page class="ion-page">
+    <!-- Header -->
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title *ngIf="data != null" class="ion-text-capitalize">{{data.headerTitle}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  <!-- Content -->
+  <ion-content *ngIf="data != null" class="transparent background-size"
+  [ngStyle]="{'background-image': 'url(' + data.background + ')'}">
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-align-items-center ion-padding-horizontal" *ngIf="data != null">
+        <ion-col size="12" size-md="8" push-md="2" class="ion-padding-top">
+          <ion-item class="ion-no-padding transparent" lines="none">
+            <img slot="start" [src]="data.logo"/>
+            <ion-button class="clear-button ion-text-capitalize ion-float-end"
+            slot="end" fill="clear" (click)="onForgotPassword()">
+              {{data.skip}}
+            </ion-button>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" size-md="8" push-md="2">
+          <!---Form-->
+          <form class="ion-margin-vertical ion-text-center ion-padding-vertical">
+            <h1 class="text-size-md text-color-primary font-bold
+            ion-text-wrap ion-padding-top">{{data.title}}</h1>
+            <!---Input field username-->
+            <ion-item class="ion-no-padding ion-text-center" input lines="none">
+              <ion-label class="text-size-sd text-color-primary font-regular"
+              position="stacked">{{data.labelUsername}}</ion-label>
+              <ion-input required type="text" [placeholder]="data.username"
+              [(ngModel)]="item.username" [ngModelOptions]="{standalone: true}">
+            </ion-input>
+              <ion-icon *ngIf="!isUsernameValid" class="icon-font-sm error-color"
+              name="remove-circle"></ion-icon>
+            </ion-item>
+            <!---Input field password-->
+            <ion-item class="ion-no-padding ion-text-center" input lines="none">
+              <ion-label class="text-size-sd text-color-primary font-regular"
+               position="stacked">{{data.labelPassword}}</ion-label>
+              <ion-input required type="password" [placeholder]="data.password"
+              [(ngModel)]="item.password" [ngModelOptions]="{standalone: true}">
+            </ion-input>
+              <ion-icon *ngIf="!isPasswordValid" class="icon-font-sm error-color"
+              name="remove-circle"></ion-icon>
+            </ion-item>
+            <ion-button class="clear-button ion-text-capitalize
+            ion-float-end ion-margin-top ion-margin-bottom"
+            fill="clear" (click)="onForgotPassword()">
+              {{data.forgotPassword}}
+            </ion-button>
+            <div class="clearfix"></div>
+            <ion-row class="ion-margin-top padding-half">
+              <ion-col size="6" class="padding-half">
+                <!---Login ion-button-->
+                <ion-button class="box-shadow facebookButton button-icon
+                ion-text-capitalize ion-margin-top ion-margin-bottom"
+                expand="block" (click)="onLoginFunc()">
+                  <ion-icon class="icon-font-sm icon-color-accent"
+                  slot="end" name="logo-facebook"></ion-icon>
+                  {{data.facebookLogin}}
+                </ion-button>
+              </ion-col>
+              <ion-col size="6" class="padding-half">
+                <!---Login ion-button-->
+                <ion-button class="box-shadow default-button ion-text-capitalize
+                ion-margin-top ion-margin-bottom" expand="block" (click)="onLoginFunc()">
+                  {{data.login}}</ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-page>

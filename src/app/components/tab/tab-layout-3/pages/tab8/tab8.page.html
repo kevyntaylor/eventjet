@@ -1,0 +1,32 @@
+<ion-content>
+  <!-- Content -->
+  <ion-grid class="ion-no-padding" *ngIf="data != null">
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-list-header>
+            <ion-label class="ion-padding-top ion-padding-bottom">
+              <h1 class="text-size-md font-regular text-color-accent ion-no-margin">
+                {{data.allComments}}</h1>
+            </ion-label>
+          </ion-list-header>
+          <ion-item class="default-item" lines="none"
+           *ngFor="let item of data.items"
+           (click)="onItemClickFunc(item, $event)">
+            <ion-avatar slot="start">
+              <img [src]="item.image">
+            </ion-avatar>
+            <ion-label class="ion-padding-start">
+              <h3 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                {{item.title}}</h3>
+              <h3 class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+                {{item.time}}</h3>
+              <p class="text-size-sm text-color-secondary font-regular
+              ion-text-wrap ion-padding-top">{{item.description}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

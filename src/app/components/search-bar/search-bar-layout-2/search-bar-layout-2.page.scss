@@ -1,0 +1,10 @@
+ion-toolbar {
+  color: var(--cs-text-accent, #2ABDCE);
+}
+
+.ios {
+  ion-back-button,
+  ion-menu-button {
+    --color: var(--cs-text-accent, #2ABDCE);
+  }
+}

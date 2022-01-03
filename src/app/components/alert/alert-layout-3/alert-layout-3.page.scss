@@ -1,0 +1,12 @@
+ion-card {
+  height: 150px;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  ion-item {
+    width: 50% !important;
+    --inner-padding-end: 0;
+  }
+}

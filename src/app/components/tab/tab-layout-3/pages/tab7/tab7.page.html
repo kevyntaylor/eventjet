@@ -1,0 +1,47 @@
+<ion-content class="background-secondary">
+  <div class="background-size"
+  [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+  </div>
+  <ion-grid class="ion-no-padding" *ngIf="data != null">
+    <ion-row class="ion-padding-top">
+      <ion-col size="12">
+        <ion-card class="ion-no-margin ion-no-padding no-box-shadow no-border-radius">
+          <ion-item class="transparent" lines="none">
+            <ion-label class="ion-no-margin">
+              <span class="text-size-md text-color-primary
+              font-regular ion-text-wrap">{{data.category}}</span>
+              <h2 class="text-size-xl text-color-primary font-bold
+              ion-text-capitalize ion-text-wrap">{{data.title}}</h2>
+            </ion-label>
+            <ion-button fill="clear" (click)="presentActionSheet(data, $event)">
+              <ion-icon class="icon-font-md icon-color-secondary"
+              slot="icon-only" [name]="data.shareIcon"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item class="transparent" lines="none">
+            <ion-button class="button-icon ion-text-capitalize">
+              <ion-icon class="icon-font-md icon-color-secondary"
+              slot="start" [name]="data.iconLike">
+              </ion-icon>{{data.textLike}}
+            </ion-button>
+            <ion-button class="button-icon ion-text-capitalize">
+              <ion-icon class="icon-font-md icon-color-secondary"
+              slot="start" [name]="data.iconComments">
+              </ion-icon>{{data.textComments}}
+            </ion-button>
+          </ion-item>
+          <p class="text-size-p text-color-secondary font-regular ion-text-wrap
+          ion-padding-start ion-padding-end ion-no-margin ion-padding-bottom">
+          {{data.subtitle1}}
+        </p>
+          <div class="background-size"
+          [ngStyle]="{'background-image': 'url(' + data.image + ')'}">
+          </div>
+          <p class="text-size-p text-color-secondary font-regular ion-text-wrap
+          ion-padding ion-no-margin">{{data.subtitle2}}
+        </p>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

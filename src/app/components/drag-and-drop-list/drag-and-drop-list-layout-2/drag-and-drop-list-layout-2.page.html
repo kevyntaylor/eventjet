@@ -1,0 +1,45 @@
+<!-- DRAGEN AND DROP --COMPONENT 2 -->
+<ion-grid class="ion-no-padding" *ngIf="data != null">
+  <ion-row>
+    <ion-col size="12">
+      <ion-list>
+        <!--Header-->
+        <ion-list-header class="ion-no-padding">
+          <!-- Title and Subtitle -->
+          <ion-label class="ion-text-center ion-padding">
+            <h1 class="text-size-md font-regular text-color-primary ion-text-wrap">
+                {{data.title}}</h1>
+            <h2 class="text-size-sm text-color-accent font-regular ion-text-wrap">
+              {{data.subtitle}}</h2>
+            <ion-button class="default-button box-shadow ion-margin-top" expand="block"
+              (click)="onProceedFunc(data, $event)">
+              {{data.button}}
+            </ion-button>
+          </ion-label>
+        </ion-list-header>
+        <!-- Content -->
+        <ion-reorder-group disabled="false"
+        (ionItemReorder)="ionItemReorder($event)">
+          <ion-item class="default-item" lines="none"
+          *ngFor="let item of data.items"
+          (click)="onItemClickFunc(item, $event)">
+            <!-- Avatar -->
+            <ion-avatar slot="start">
+              <img [src]="item.image">
+            </ion-avatar>
+            <ion-label class="overflow-visible ion-padding-start">
+              <h2 class="text-size-md font-bold text-color-primary ion-text-wrap">
+                {{item.title}}</h2>
+              <h3 class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+                {{item.subtitle}}</h3>
+              <ion-badge class="box-shadow">{{item.price}}</ion-badge>
+            </ion-label>
+            <ion-reorder class="ion-no-margin" slot="end">
+              <ion-icon class="icon-color-primary icon-font-lg" name="reorder-three"></ion-icon>
+            </ion-reorder>
+          </ion-item>
+        </ion-reorder-group>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

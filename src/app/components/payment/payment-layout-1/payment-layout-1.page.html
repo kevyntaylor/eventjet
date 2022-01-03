@@ -1,0 +1,37 @@
+<!-- Content -->
+<ion-grid class="background-secondary ion-padding" size="12">
+  <ion-row *ngIf="data != null">
+    <ion-col size="12" class="ion-text-center">
+      <img class="border-radius" [src]="data.imgs" alt="">
+    </ion-col>
+    <ion-col size="12">
+      <!-- Card Number -->
+      <ion-item class="box-shadow ion-margin-bottom input" lines="none">
+        <ion-input [placeholder]="data.cardNumber" type="number"
+        [(ngModel)]="cardItem.cardNumber"></ion-input>
+      </ion-item>
+      <!-- Card Holder -->
+      <ion-item class="box-shadow ion-margin-bottom input" lines="none">
+        <ion-input [placeholder]="data.cardHolder" type="text"
+        [(ngModel)]="cardItem.cardHolder"></ion-input>
+      </ion-item>
+      <!-- Card Data -->
+      <ion-item class="box-shadow ion-margin-bottom input" lines="none">
+        <ion-datetime [placeholder]="data.experienceDate" display-format="MM/YY"
+        [(ngModel)]="cardItem.birth"
+        [ngModelOptions]="{standalone: true}"></ion-datetime>
+      </ion-item>
+      <!-- Card Code -->
+      <ion-item class="box-shadow ion-margin-bottom input" lines="none">
+        <ion-input type="number" [placeholder]="data.code" 
+        [(ngModel)]="cardItem.code"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-button class="default-button box-shadow ion-text-capitalize"
+      expand="block" *ngIf="data != null" (click)="onPayFunc()">
+        {{data.button}}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

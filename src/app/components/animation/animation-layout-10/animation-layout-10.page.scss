@@ -1,0 +1,29 @@
+/* Style component 10
+========================================================*/
+.top-stories {
+  padding-bottom: 30px;
+  .background-size {
+    height: 200px;
+    position: relative;
+  }
+}
+
+.slider {
+  overflow-x: scroll;
+  display: -webkit-inline-box;
+  display: flex;
+  flex-direction: row;
+  padding-left: 6px;
+
+  ion-card {
+    margin: 4px 4px 10px 4px;
+    position: relative;
+    width: 150px;
+    flex: none;
+
+    .background-size {
+      height: 100px;
+      position: relative;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+/* Style component 2
+========================================================*/
+
+li {
+  list-style-type: none;
+  margin: 8px 8px 0;
+  border-radius: var(--border-radius, 8px);
+  overflow: hidden;
+}
+
+.background-size {
+  height: 215px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.button-icon {
+  margin: 0 auto 16px auto;
+  background: var(--cs-background-secondary, #FFFFFF);
+  border-radius: var(--border-radius, 8px);
+  color: var(--cs-text-accent, #2ABDCE);
+  --padding-top: 15px;
+  --padding-bottom: 15px;
+  --padding-start: 18px;
+  --padding-end: 18px;
+  --background-hover: var(--cs-background-secondary, #FFFFFF) !important;
+  --color-hover: var(--cs-text-accent, #2ABDCE) !important;
+  --color-activated: var(--cs-text-accent, #2ABDCE) !important;
+  --color-focused: var(--cs-text-accent, #2ABDCE) !important;
+}
+/* Settings Accordion "OPEN" */
+
+.item-accordion {
+  background: var(--cs-background-secondary, #FFFFFF);
+  max-height: 0;
+  display: block !important;
+  -moz-transition: all 400ms;
+  -ms-transition: all 400ms;
+  -o-transition: all 400ms;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+  overflow: hidden;
+
+  &.active {
+    -moz-transition: all 400ms;
+    -ms-transition: all 400ms;
+    -o-transition: all 400ms;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+    overflow: visible;
+    max-height: 999px;
+  }
+
+  .rating {
+    display: inline-block;
+  }
+
+  .icon::before {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

@@ -1,0 +1,31 @@
+<!--Themes Simple -->
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="12">
+      <ion-list lines="none">
+        <!-- Header Title Top -->
+        <ion-list-header class="ion-padding-top ion-padding-bottom">
+          <h1 class="text-size-md text-color-accent font-regular ion-no-margin">
+            {{data.title}}</h1>
+        </ion-list-header>
+        <!-- List -->
+        <ion-radio-group [(ngModel)]="data.selectedItem">
+          <ion-item class="default-item" lines="none"
+          *ngFor="let entry of data.items"
+          (click)="onItemClickFunc(entry, $event)">
+            <ion-avatar slot="start">
+              <img [src]="entry.avatar">
+            </ion-avatar>
+            <ion-label class="ion-padding-start">
+              <h2 class="text-size-md text-color-primary
+              font-bold ion-text-wrap">{{entry.title}}</h2>
+              <h3 class="text-size-sm text-color-secondary
+              font-regular ion-text-wrap">{{entry.subtitle}}</h3>
+            </ion-label>
+            <ion-radio [value]="entry.id"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

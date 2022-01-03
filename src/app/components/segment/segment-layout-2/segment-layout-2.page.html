@@ -1,0 +1,273 @@
+<!-- Theme Segment - Segment List -->
+<ion-page class="ion-page"  *ngIf="viewEntered">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title *ngIf="data != null" class="ion-text-capitalize">
+        {{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+    <!--Segment Section -->
+    <ion-toolbar class="ion-no-padding background-secondary" *ngIf="data != null">
+        <ion-segment scrollable [(ngModel)]="selectedItem">
+          <ion-segment-button class="ion-text-capitalize" value="Page1">
+            <ion-label>{{data.segmentButton1}}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="ion-text-capitalize" value="Page2">
+            <ion-label>{{data.segmentButton2}}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="ion-text-capitalize" value="Page3">
+            <ion-label>{{data.segmentButton3}}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="ion-text-capitalize" value="Page4">
+            <ion-label>{{data.segmentButton4}}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="ion-text-capitalize" value="Page5">
+            <ion-label>{{data.segmentButton5}}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content-->
+  <ion-content>
+    <ion-grid class="ion-no-padding" *ngIf="data != null">
+
+      <!--- SETTINGS PAGE1 SCREEN -->
+      <ion-row class="page1" *ngIf="isEnabled('Page1') && data.page1 != null">
+        <ion-col size="12" class="ion-align-self-start">
+          <ion-card class="ion-no-padding box-shadow border-radius">
+            <ion-item class="transparent" lines="none">
+              <ion-avatar>
+                <img [src]="data.page1.image" alt="">
+              </ion-avatar>
+            </ion-item>
+            <ion-item class="transparent ion-text-center" lines="none">
+              <ion-label class="ion-text-wrap">
+                <h1 class="text-size-md text-color-primary font-bold">
+                  {{data.page1.title}}</h1>
+                <p class="text-size-sm text-color-secondary font-regular">
+                  {{data.page1.subtitle}}</p>
+              </ion-label>
+            </ion-item>
+            <div class="clearfix"></div>
+            <div class="social-share">
+              <!-- Followers-->
+              <ion-item class="transparent" lines="none">
+                <ion-label class="ion-text-center">
+                  <span class="text-size-xs text-color-secondary font-regular">
+                    {{data.page1.valueFollowers}}</span>
+                  <div class="clearfix"></div>
+                  <h2 class="text-size-xs text-color-secondary font-regular">
+                    {{data.page1.followers}}</h2>
+                </ion-label>
+              </ion-item>
+              <!-- Following -->
+              <ion-item class="transparent" lines="none">
+                <ion-label class="ion-text-center">
+                  <span class="text-size-xs text-color-secondary font-regular">
+                    {{data.page1.valueFollowing}}</span>
+                  <div class="clearfix"></div>
+                  <h2 class="text-size-xs text-color-secondary font-regular">
+                    {{data.page1.following}}</h2>
+                </ion-label>
+              </ion-item>
+              <!-- Post -->
+              <ion-item class="transparent" lines="none">
+                <ion-label class="ion-text-center">
+                  <span class="text-size-xs text-color-secondary font-regular">
+                    {{data.page1.valuePosts}}</span>
+                  <div class="clearfix"></div>
+                  <h2 class="text-size-xs text-color-secondary font-regular">
+                    {{data.page1.posts}}</h2>
+                </ion-label>
+              </ion-item>
+            </div>
+            <ion-row class="ion-padding">
+              <ion-col size="6">
+                <ion-button class="box-shadow default-button
+                ion-text-capitalize" expand="block">
+                  {{data.page1.follow}}</ion-button>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button class="box-shadow default-button
+                ion-text-capitalize" expand="block">
+                  {{data.page1.message}}</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-col>
+        <!-- Slider-->
+        <ion-col size="12" class="align-self-start">
+          <h2 class="ion-text-uppercase text-size-xs text-color-accent
+          no-margin font-bold ion-text-center">{{data.page1.category}}</h2>
+          <ion-slides pager="true">
+            <ion-slide *ngFor="let item of data.page1.items;let i = index">
+              <ion-card class="ion-padding box-shadow border-radius"
+              (click)="onItemClickFunc(item, $event)">
+                <span class="text-size-xs text-color-secondary
+                font-bold ion-text-capitalize">{{item.category}}</span>
+                <h2 class="text-size-md ion-text-wrap text-color-primary
+                font-regular">{{item.title}}</h2>
+                <div class="social-share">
+                  <ion-button class="button-icon ion-text-capitalize"
+                  (click)="onLikeFunc(item, $event)">
+                    <ion-icon class="icon-font-sm icon-color-secondary"
+                    slot="start" [ngClass]="{'active' : item.like.isActive}"
+                    [name]="item.like.icon"></ion-icon>
+                    {{item.like.number}} {{item.like.text}}
+                  </ion-button>
+                  <ion-button class="button-icon ion-text-capitalize"
+                  (click)="onCommentFunc(item, $event)">
+                    <ion-icon class="icon-font-sm icon-color-secondary"
+                    slot="start" [name]="item.comment.icon"></ion-icon>
+                    {{item.comment.number}} {{item.comment.text}}
+                  </ion-button>
+                </div>
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+
+      <!--- SETTINGS PAGE2 SCREEN -->
+      <ion-row class="page2" *ngIf="isEnabled('Page2') && data.page2 != null">
+        <ion-col size="12" size-md="6" class="padding-half"
+        *ngFor="let item of data.page2.items">
+          <ion-card class="ion-no-padding box-shadow border-radius ion-no-margin">
+            <ion-item lines="none">
+              <ion-avatar slot="start">
+                <img [src]="item.avatar" alt="">
+              </ion-avatar>
+              <ion-label class="ion-padding-start">
+                <h1 class="text-size-md text-color-primary font-bold">
+                  {{item.avatarName}}</h1>
+              </ion-label>
+            </ion-item>
+            <ion-img [src]="item.image"></ion-img>
+            <ion-card-content (click)="onItemClickFunc(item, $event)">
+              <h3 class="text-color-primary text-size-p font-bold">
+                {{item.category}}</h3>
+              <h1 class="text-size-xl text-color-primary font-bold ion-text-wrap">
+                {{item.title}}</h1>
+              <p class="text-size-sm text-color-secondary">
+                {{item.description}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!--- SETTINGS PAGE3 SCREEN -->
+      <ion-row class="page3" *ngIf="isEnabled('Page3') && data.page3 != null">
+        <ion-col size="12" size-md="6" class="padding-half"
+        *ngFor="let item of data.page3.items">
+          <ion-card class="ion-no-padding box-shadow border-radius ion-no-margin">
+            <ion-img [src]="item.image"></ion-img>
+            <ion-card-content (click)="onItemClickFunc(item, $event)">
+              <h3 class="text-color-primary text-size-p font-bold">
+                {{item.category}}</h3>
+              <h1 class="text-size-xl text-color-primary font-bold ion-text-wrap">
+                {{item.title}}</h1>
+              <p class="text-size-sm text-color-secondary">
+                {{item.description}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!--- SETTINGS PAGE4 SCREEN -->
+      <ion-row class="page4" *ngIf="isEnabled('Page4') && data.page4 != null">
+        <ion-col size="12" size-md="6" class="padding-half"
+        *ngFor="let item of data.page4.items">
+          <ion-card class="ion-no-padding box-shadow border-radius ion-no-margin">
+            <ion-img [src]="item.image"></ion-img>
+            <ion-card-content class="ion-no-padding"
+            (click)="onItemClickFunc(item, $event)">
+              <ion-item lines="none" class="transparent">
+                <ion-avatar slot="start">
+                  <img [src]="item.avatar" alt="">
+                </ion-avatar>
+                <ion-label class="ion-padding-start">
+                  <h1 class="text-size-md text-color-primary font-bold">
+                    {{item.avatarName}}</h1>
+                </ion-label>
+              </ion-item>
+              <h1 class="ion-padding-start ion-padding-end text-size-xl
+              text-color-primary font-bold ion-text-wrap">{{item.title}}</h1>
+              <p class="ion-padding text-size-sm text-color-secondary">
+                {{item.description}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!--- SETTINGS PAGE5 SCREEN -->
+      <ion-row class="background-secondary page5" *ngIf="isEnabled('Page5') && data.page5 != null">
+        <ion-col class="ion-padding-start ion-padding-end " size="12">
+          <!---About Name-->
+          <h1 class="text-size-md ion-text-wrap text-color-accent">
+            {{data.page5.title}}</h1>
+          <h2 class="text-size-xl font-bold text-color-primary">
+            {{data.page5.titleDescription}}</h2>
+          <h2 class="ion-padding-top text-size-md font-medium no-margin
+          text-color-primary ion-text-wrap">{{data.page5.contentTitle}}</h2>
+          <p class="ion-text-wrap text-color-primary text-size-sm">
+            {{data.page5.contentDescription}}</p>
+          <!---About Info-->
+          <ion-list lines="none" class="background-secondary">
+            <ion-item class="transparent ion-no-padding">
+              <i slot="start"
+              class="icon {{data.page5.iconLoacation}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-size-xs  text-color-primary
+              ion-padding-start">{{data.page5.iconLoacationText}}</p>
+            </ion-item>
+            <ion-item class="transparent ion-no-padding">
+              <i slot="start"
+              class="icon {{data.page5.iconWatch}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-size-xs text-color-primary
+              ion-padding-start">{{data.page5.iconWatchText}}</p>
+            </ion-item>
+            <ion-item class="transparent ion-no-padding">
+              <i slot="start"
+              class="icon {{data.page5.iconPhone}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-size-xs text-color-primary
+              ion-padding-start">{{data.page5.iconPhoneText}}</p>
+            </ion-item>
+            <ion-item class="transparent ion-no-padding">
+              <i slot="start"
+              class="icon {{data.page5.iconEarth}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-size-xs text-color-primary
+              ion-padding-start">{{data.page5.iconEarthText}}</p>
+            </ion-item>
+            <ion-item class="transparent ion-no-padding">
+              <i slot="start"
+              class="icon {{data.page5.iconEmail}} icon-font-md icon-color-accent">
+            </i>
+              <p class="ion-no-margin font-regular text-size-xs text-color-primary
+              ion-padding-start">{{data.page5.iconEmailText}}</p>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="12">
+          <!---MAP TEXT-->
+          <h2 class="ion-margin-start text-size-xs text-color-primary">
+            {{data.page5.titleMap}}</h2>
+          <agm-map [latitude]="data.page5.map.lat"
+          [longitude]="data.page5.map.lng"
+          [zoom]="data.page5.map.zoom"
+          [mapTypeControl]="data.page5.map.mapTypeControl"
+           [streetViewControl]="data.page5.map.streetViewControl"
+           [styles]="data.page5.map.styles">
+            <agm-marker [latitude]="data.page5.map.lat"
+            [longitude]="data.page5.map.lng"></agm-marker>
+          </agm-map>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </ion-content>
+</ion-page>

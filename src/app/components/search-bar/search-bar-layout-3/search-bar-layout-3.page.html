@@ -1,0 +1,46 @@
+<!-- Theme Search Bars - Field + header 2 -->
+<ion-page class="ion-page">
+  <!-- Header -->
+  <ion-header class="background-secondary">
+    <ion-toolbar class="ion-margin-bottom">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+    <ion-toolbar class="transparent">
+      <ion-title class="text-size-md text-color-primary font-regular ion-margin-bottom">
+        {{data.title}}</ion-title>
+      <ion-searchbar [(ngModel)]="search" (ionInput)="onTextChangeFunc($event)">
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row *ngIf="data != null">
+        <ion-col size="12">
+          <ion-list class="ion-no-margin">
+            <ion-item class="default-item"
+            lines="none" *ngFor="let item of data.items | filter:search"
+            (click)="onItemClickFunc(item, $event)">
+              <!--Content Avatar-->
+              <ion-avatar slot="start">
+                <img [src]="item.avatar">
+              </ion-avatar>
+              <!-- Ttile and Subtitle -->
+              <ion-label class="ion-padding-start">
+                <h2 class="text-size-md text-color-primary font-bold
+                ion-text-wrap ion-text-capitalize">{{item.title}}</h2>
+                <h3 class="text-size-sm text-color-secondary font-light ion-text-wrap">
+                  {{item.subtitle}}</h3>
+                <h3 class="text-size-sm text-color-primary font-light ion-text-wrap">
+                  {{item.detail}}</h3>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-page>

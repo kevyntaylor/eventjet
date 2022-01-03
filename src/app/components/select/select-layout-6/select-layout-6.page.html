@@ -1,0 +1,24 @@
+<ion-list class="background-secondary default-item" *ngIf="data != null">
+  <ion-item lines="none">
+    <ion-label class="text-size-sm text-color-secondary
+    font-regular ion-text-capitalize">{{data.header}}</ion-label>
+  </ion-item>
+  <ion-item class="ion-margin-bottom" lines="none" *ngIf="data != null">
+    <ion-label class="text-size-sm text-color-primary font-regular">
+      {{data.title}}</ion-label>
+
+    <ion-select interface="popover" [(ngModel)]="data.selectedItemMonth"
+    multiple="true" (ionChange)="onChangeMonthFunc($event)">
+      <ion-select-option *ngFor="let item of data.itemsMonth"
+      [value]="item.id">{{item.title}}
+      </ion-select-option>
+    </ion-select>
+
+    <ion-select interface="popover" [(ngModel)]="data.selectedItemYear"
+    [multiple]="true" (ionChange)="onChangeYearsFunc($event)">
+      <ion-select-option *ngFor="let item of data.itemsYears"
+      [value]="item.id">{{item.title}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>

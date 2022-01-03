@@ -1,0 +1,22 @@
+/*  #Style Payment - Payment
+================================================*/
+
+ion-datetime {
+  --padding-start: 0;
+}
+
+ion-grid {
+
+  ion-row {
+    height: 100%;
+  }
+}
+
+ion-item {
+  --background: var(--cs-background-secondary, #fff);
+  border-radius: 24px;
+
+  .ion-dirty {
+    color: var(--cs-text-accent, #2ABDCE) !important;
+  }
+}

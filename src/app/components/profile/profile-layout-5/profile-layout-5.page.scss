@@ -1,0 +1,70 @@
+/* Profile 5
+========================================*/
+:host {
+  --cs-size-avatar: 120px;
+}
+/* Settings Card
+=========================================*/
+
+.background-size {
+  ion-avatar {
+    width: var(--cs-size-avatar, 120px) !important;
+    height: var(--cs-size-avatar, 120px) !important;
+    margin: 15px auto 20px;
+  }
+}
+/* Social Share
+=========================================*/
+
+.social-share {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+/* Settings Accordion "OPEN" */
+.item-accordion {
+  -moz-transition: all 400ms;
+  -ms-transition: all 400ms;
+  -o-transition: all 400ms;
+  -webkit-transition: all 400ms;
+  transition: all 400ms;
+  max-height: 0;
+  display: block !important;
+  overflow: hidden;
+
+  &.active {
+    -moz-transition: all 400ms;
+    -ms-transition: all 400ms;
+    -o-transition: all 400ms;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+    overflow: visible;
+    max-height: 999px;
+  }
+}
+
+.slider {
+  overflow-x: scroll;
+  display: -webkit-inline-box;
+  display: flex;
+  flex-direction: row;
+
+  ion-card {
+    margin: 0 0 0 8px;
+    position: relative;
+    flex: none;
+
+    ion-avatar {
+      margin: auto;
+    }
+  }
+}
+
+.gallery-list {
+
+  ion-card {
+    margin: 4px 4px !important;
+    width: calc(100% - 8px) !important;
+    box-shadow: none !important;
+  }
+}

@@ -1,0 +1,30 @@
+<ion-content class="background-secondary">
+  <!--  Theme Form - Form + Write Comment -->
+  <ion-grid *ngIf="data != null">
+    <ion-row class="ion-padding-top">
+      <ion-col size="12">
+        <ion-item class="box-shadow input" lines="none">
+          <ion-input class="ion-padding-start" type="text"
+          [placeholder]="data.yourName" [(ngModel)]="item.name"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item class="box-shadow input" lines="none">
+          <ion-input type="text" [placeholder]="data.title"
+          [(ngModel)]="item.title"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12" class="textarea">
+        <ion-item class="box-shadow input" lines="none">
+          <ion-textarea rows="100%" cols="1" [placeholder]="data.description"
+          [(ngModel)]="item.description"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button class="default-button box-shadow ion-text-capitalize box-shadow"
+        expand="block" (click)="onSubmitFunc($event)">{{data.button}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

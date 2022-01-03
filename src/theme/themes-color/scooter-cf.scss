@@ -1,0 +1,87 @@
+.scooter-cf {
+
+  /* Settings Fonts Size And Icon Size
+      =======================================================
+      =======================================================*/
+
+  --fallback-color: red;
+  --h1-font-size: 24px;
+  --h2-font-size: 20px;
+  --h3-font-size: 17px;
+  --h4-font-size: 16px;
+  --h5-font-size: 15px;
+  --h6-font-size: 12px;
+  --text-font-size: 14px;
+
+  /* Settings Fonts Size Icon
+      =======================================================
+      =======================================================*/
+
+  --icon-size-small: 17px;
+  --icon-size-medium: 22px;
+  --icon-size-large: 32px;
+  --icon-size-extra-large: 48px;
+
+  /* Settings Color Background Our App
+    =======================================================
+    =======================================================*/
+
+  --cs-background-primary: #F1F1F1;
+  --cs-background-secondary: #FFFFFF;
+  --cs-background-accent: #2ABDCE;
+  --cs-background-border: #7f8490;
+  --cs-background-dark: #4d4d4d;
+
+  /* Settings Color Text Our App
+    =======================================================
+    =======================================================*/
+
+  --cs-text-primary: #4d4d4d ;
+  --cs-text-secondary: #7f8490 ;
+  --cs-text-light: #fff;
+  --cs-text-accent: #2ABDCE;
+
+
+  /* Settings Color Gradient Our App
+=======================================================
+=======================================================*/
+
+/* Settings Gradijent */
+--cs-gradient-primary: rgba(42, 189, 206, 1);
+--cs-gradient-secondary: rgba(168,223,99, 1);
+
+--cs-gradient: linear-gradient(to left, var(--cs-gradient-primary) 0%, var(--cs-gradient-secondary) 100%);
+
+
+/* Settings Gradijent Images*/
+--cs-gradient-images-primary: rgba(42,189,206, 0);
+--cs-gradient-images-secondary: rgba(42,189,206, 1);
+
+--cs-gradient-image: linear-gradient(to bottom, var(--cs-gradient-images-primary) 0%, var(--cs-gradient-images-secondary) 100%);
+
+/* Settings Size Avatar
+=======================================================
+=======================================================*/
+
+  --size-avatar: 72px;
+
+/* Settings Size Thumbnail
+=======================================================
+=======================================================*/
+
+  --size-thumbnail: 78px;
+
+/* Settings Border Radius
+=======================================================
+=======================================================*/
+
+  --border-radius: 8px;
+
+/* Settings Color Icon
+=======================================================
+=======================================================*/
+
+  --cs-icon-color-primary: #ffffff;
+  --cs-icon-color-secondary: #4d4d4d;
+  --cs-icon-color-accent: #2ABDCE;
+}

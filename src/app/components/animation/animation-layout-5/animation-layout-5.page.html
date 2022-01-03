@@ -1,0 +1,38 @@
+<!-- ANIMATION --COMPONENT 5 -->
+<ion-grid class="ion-no-padding" *ngIf="data && data.items">
+  <ion-row>
+    <ion-col size="12">
+      <ion-list class="ion-no-margin" appAnimateItems className="bounceInLeft">
+        <!--Header-->
+        <ion-list-header>
+          <ion-label class="ion-padding-top ion-padding-bottom">
+            <h1 class="text-size-md font-regular text-color-accent
+            ion-no-margin">{{data.header}}</h1>
+          </ion-label>
+        </ion-list-header>
+          <ion-item class="default-item animation-normal opacity-0"
+          *ngFor="let item of data.items" lines="none"
+          (click)="onItemClickFunc(item, $event)">
+            <ion-label class="ion-no-margin">
+              <ion-item-divider>
+                <!--Content Avatar-->
+                <ion-avatar slot="start">
+                  <img [src]="item.image">
+                </ion-avatar>
+                <!-- Ttile and Subtitle -->
+                <h2 class="text-size-md font-bold text-color-primary
+                ion-text-wrap ion-padding-start">{{item.title}}</h2>
+                <ion-button class="default-button box-shadow
+                ion-text-capitalize margin-half" slot="end">
+                  {{item.ionButton}}</ion-button>
+              </ion-item-divider>
+              <ion-item-divider>
+                <h3 class="text-size-sm text-color-secondary font-regular
+                ion-text-wrap ion-padding-bottom">{{item.subtitle}}</h3>
+              </ion-item-divider>
+            </ion-label>
+          </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

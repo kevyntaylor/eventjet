@@ -1,0 +1,28 @@
+<ion-page class="ion-page" *ngIf="viewEntered">
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!--Content -->
+  <ion-content *ngIf="data != null">
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <agm-map *ngIf="data.map != null"
+        [latitude]="data.map.lat"
+        [longitude]="data.map.lng"
+         [zoom]="data.map.zoom"
+          [mapTypeControl]="data.map.mapTypeControl"
+          [streetViewControl]="data.map.streetViewControl"
+          [styles]="data.map.styles">
+          <agm-marker [latitude]="data.map.lat"
+          [longitude]="data.map.lng"></agm-marker>
+        </agm-map>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</ion-page>

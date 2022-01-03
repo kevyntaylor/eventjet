@@ -1,0 +1,15 @@
+<ion-grid class="ion-no-padding">
+  <ion-row *ngIf="scannedData != null">
+    <ion-col size="12" class="ion-padding">
+      <ion-item lines="none" class="ion-text-wrap
+      border-radius box-shadow transparent">
+        <ion-label>
+          <h1 class="text-color-primary text-size-xl
+          font-regular ion-padding-bottom">{{scannedData.format}}</h1>
+          <p class="text-color-primary text-size-md font-regular">
+            {{scannedData.text}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,29 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Content -->
+  <ion-content class="ion-no-padding">
+
+    <!-- Page 1 -->
+    <cs-comment-layout-1
+    *ngIf="isType(0)"
+    [data]="data"
+    (onLogin)="onItemClick($event)">
+    </cs-comment-layout-1>
+
+    <!-- Page 2 -->
+    <cs-comment-layout-2
+    *ngIf="isType(1)"
+    [data]="data"
+    (onLogin)="onItemClick($event)">
+    </cs-comment-layout-2>
+
+  </ion-content>
+</ion-app>

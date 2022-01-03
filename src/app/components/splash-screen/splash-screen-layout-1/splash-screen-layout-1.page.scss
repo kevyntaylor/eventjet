@@ -1,0 +1,63 @@
+ion-grid,
+ion-row{
+  height: 100%;
+  overflow: hidden;
+}
+
+@keyframes splashScreen {
+  0%,
+  100% {
+    transform: scale(1.5, 1.5) translate(20px, 20px);
+  }
+
+  25% {
+    transform: scale(1.8, 1.8) translate(50px, 50px);
+  }
+
+  50% {
+    transform: scale(1.6, 1.6) translate(60px, 90px);
+  }
+
+  75% {
+    transform: scale(2.0, 2.0) translate(10px, 10px);
+  }
+}
+
+
+.background-size {
+  animation: splashScreen 40s ease infinite;
+  -ms-animation: splashScreen 40s ease infinite;
+  -webkit-animation: splashScreen 40s ease infinite;
+  -o-animation: splashScreen 40s ease infinite;
+  -moz-animation: splashScreen 40s ease infinite;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes animationLogo1 {
+    0% {right: 0; opacity: 0;}
+    100%{right: 70px; opacity: 1;}
+}
+
+@keyframes animationLogo1 {
+  0% {right: 0; opacity: 0;}
+  100%{right: 70px; opacity: 1;}
+}
+
+
+ion-img {
+    max-width: 120px;
+    position: absolute;
+    bottom: 50px;
+    -webkit-animation: animationLogo1 800ms;
+    -webkit-animation-fill-mode: forwards;
+    animation: animationLogo1 800ms;
+    animation-delay: 500ms;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    z-index: 9999;
+}

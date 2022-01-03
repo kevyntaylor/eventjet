@@ -1,0 +1,44 @@
+<!-- ANIMATION --COMPONENT 7 -->
+<ion-grid class="ion-no-padding" *ngIf="data && data.items">
+  <ion-row appAnimateItems className="zoomIn">
+    <ion-col class="animation-fast opacity-0" size="12">
+      <ion-card class="ion-no-margin no-border-radius no-box-shadow background-size"
+      [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+      <ion-card-content>
+        <h2 class="text-size-xl text-color-light font-bold" *ngIf="data != null">
+          {{data.title}}</h2>
+        <h3 class="text-size-md text-color-light font-regular" *ngIf="data != null">
+          {{data.subtitle}}</h3>
+      </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <ion-list class="ion-no-margin" appAnimateItems className="bounceInRight">
+        <ion-item class="default-item ion-no-padding animation-normal opacity-0"
+        lines="none" *ngFor="let item of data.items"
+        (click)="onItemClickFunc(item, $event)">
+          <ion-label>
+            <ion-item-divider class="transparent">
+              <!--Content Avatar-->
+              <ion-avatar slot="start">
+                <img [src]="item.image">
+              </ion-avatar>
+              <!-- Ttile and Subtitle -->
+              <h2 class="text-size-md text-color-primary font-bold
+              ion-text-wrap ion-padding-start">{{item.title}}</h2>
+              <ion-button class="default-button box-shadow
+              ion-text-capitalize margin-half" slot="end">
+                {{item.button}}</ion-button>
+            </ion-item-divider>
+            <ion-item-divider class="transparent">
+              <h3 class="text-size-sm text-color-secondary
+              font-regular ion-text-wrap">{{item.subtitle}}</h3>
+            </ion-item-divider>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

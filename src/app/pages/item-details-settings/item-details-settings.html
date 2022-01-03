@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>RTL + Color change</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background-secondary">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="transparent" lines="none">
+          <ion-lable class="text-size-xs text-color-primary font-bold ion-padding-end">Testing our application with Rtl (enable)</ion-lable>
+          <ion-checkbox slot="end" [(ngModel)]="rtlChecked" (ionChange)="ionChange($event)"></ion-checkbox>
+        </ion-item>
+        <ion-item class="transparent" lines="none">
+          <h1 class="text-size-lg text-color-primary font-bold">After changing rtl, please restart app.</h1>
+        </ion-item>
+        <!--- Button color combination -->
+        <ion-col size="12">
+          <ion-button class="ion-margin-top default-button scooter-cf" expand="block" (click)="changeTheme('scooter-cf')">
+            Scooter Cf
+          </ion-button>
+          <ion-button class="ion-margin-top default-button cherobins" expand="block" (click)="changeTheme('cherobins')">
+            CheRobin's
+          </ion-button>
+          <ion-button class="ion-margin-top default-button cheninapricot" expand="block" (click)="changeTheme('cheninapricot')">
+            Chenin Apricot
+          </ion-button>
+          <ion-button class="ion-margin-top default-button heliotropeportage" expand="block" (click)="changeTheme('heliotropeportage')">
+            Heliotrope Portage
+          </ion-button>
+          <ion-button class="ion-margin-top default-button scooter" expand="block" (click)="changeTheme('scooter')">
+            Scooter
+          </ion-button>
+          <ion-button class="ion-margin-top default-button deepblush" expand="block" (click)="changeTheme('deepblush')">
+            Deep Blush
+          </ion-button>
+          <ion-button class="ion-margin-top default-button mediumpurple" expand="block" (click)="changeTheme('mediumpurple')">
+            Medium Purple
+          </ion-button>
+          <ion-button class="ion-margin-top default-button porsche" expand="block" (click)="changeTheme('porsche')">
+            Porsche
+          </ion-button>
+          <ion-button class="ion-margin-top default-button bilobaflower" expand="block" (click)="changeTheme('bilobaflower')">
+            Biloba Flower
+          </ion-button>
+          <ion-button class="ion-margin-top default-button celery"  expand="block"(click)="changeTheme('celery')">
+            Celery
+          </ion-button>
+        </ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,90 @@
+<ion-app>
+  <!--- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>All</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!--- Content text exapmles  --->
+  <ion-content class="ion-padding background-secondary">
+    <ion-grid>
+      <ion-col size="12">
+        <ion-list class="background-secondary">
+          <div class="title-components text-uppercase padding-bottom text-size-lg text-color-primary">Typography examples:</div>
+          <h1 class="text-size-xl text-color-primary">This is example of h1 title.</h1>
+          <h2 class="text-size-lg text-color-primary">And this is example of h2 title/subtitle.</h2>
+          <h3 class="text-size-md text-color-primary">Example of h3 subtitle is also here.</h3>
+          <h4 class="text-size-xs text-color-primary">And h4 subtitle example is here.</h4>
+          <h5 class="text-size-sm text-color-primary">h5 subtitle is like this!</h5>
+          <h6 class="text-size-sm text-color-primary">And h6 at the end usualy same as h6.</h6>
+          <p class="text-size-p text-color-primary">This is example of paragraph text.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <!--- BUTTON EXAMPLE  --->
+          <div class="title-components ion-text-uppercase ion-padding-vertical text-size-md ion-margin-bottom text-color-primary">Badge examples:</div>
+          <ion-badge class="box-shadow">Badge</ion-badge>
+          <!--- BUTTON EXAMPLE  --->
+          <div class="title-components ion-text-uppercase ion-padding-vertical text-size-md ion-margin-bottom text-color-primary">Button examples:</div>
+          <ion-row>
+            <ion-col size="12" size-md="6">
+              <span class="text-size-xs ion-text-capitalize text-color-primary">Default button</span>
+              <div class="clerfix"></div>
+              <ion-button class="ion-text-capitalize default-button box-shadow">
+                Button
+              </ion-button>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <span class="text-size-xs ion-text-capitalize text-color-primary">Button with icon</span>
+              <div clerfix></div>
+              <ion-button class="ion-text-capitalize button-icon" fill="clear">
+                <ion-icon class="icon-font-md icon-color-secondary" slot="start" name="star"></ion-icon>
+                Button
+              </ion-button>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <span class="text-size-xs ion-text-capitalize text-color-primary">Clear button</span>
+              <div class="clerfix"></div>
+              <ion-button class="ion-text-capitalize clear-button" fill="clear">
+                Button
+              </ion-button>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <span class="text-size-xs ion-text-capitalize text-color-primary">Action Sheet Button</span>
+              <div class="clerfix"></div>
+              <ion-button fill="clear">
+                <ion-icon class="icon-font-lg icon-color-secondary" slot="icon-only" name="ellipsis-horizontal"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <!--- ICON EXAMPLES  --->
+          <div class="title-components ion-text-uppercase ion-padding-vertical text-size-md ion-margin-bottom text-color-primary">ICON EXAMPLES:</div>
+          <span class="block padding-vertical text-size-xs text-color-primary">Round</span>
+          <ion-icon class="icon-round icon-font-lg icon-color-primary" name="location"></ion-icon>
+          <span class="block ion-padding-vertical text-size-xs text-color-primary">Small</span>
+          <i class="icon-font-sm icon-color-accent icon icon-thumb-up"></i>
+          <i class="icon-font-sm icon-color-accent icon icon-heart"></i>
+          <i class="icon-font-sm icon-color-accent icon icon-share-variant"></i>
+          <div class="clerfix"></div>
+          <span class="block ion-padding-vertical text-size-xs text-color-primary">Medium</span>
+          <i class="icon-font-md icon-color-accent icon icon-thumb-up"></i>
+          <i class="icon-font-md icon-color-accent icon icon-heart"></i>
+          <i class="icon-font-md icon-color-accent icon icon-share-variant"></i>
+          <div class="clerfix"></div>
+          <span class="block ion-padding-vertical text-size-xs text-color-primary">Large</span>
+          <i class="icon-font-lg icon-color-accent icon icon-thumb-up"></i>
+          <i class="icon-font-lg icon-color-accent icon icon-heart"></i>
+          <i class="icon-font-lg icon-color-accent icon icon-share-variant"></i>
+          <span class="block ion-padding-vertical text-size-xs text-color-primary">Extra Large</span>
+          <i class="icon-font-xl icon-color-accent icon icon-thumb-up"></i>
+          <i class="icon-font-xl icon-color-accent icon icon-heart"></i>
+          <i class="icon-font-xl icon-color-accent icon icon-share-variant"></i>
+        </ion-list>
+      </ion-col>
+    </ion-grid>
+  </ion-content>
+</ion-app>

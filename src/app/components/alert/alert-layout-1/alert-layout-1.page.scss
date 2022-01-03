@@ -1,0 +1,9 @@
+ion-item {
+  ion-label {
+    flex: unset;
+
+    .rating {
+      display: inline-flex;
+    }
+  }
+}

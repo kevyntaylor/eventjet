@@ -1,0 +1,98 @@
+/* Settings Scrooll Segmnet
+===========================================*/
+// Setting scrollable toolbar
+
+:host {
+  --st-scrollable-toolbar-padding-left: 5px !important;
+}
+// Setting scroll button
+
+.ion-color-primary {
+  background: var(--cs-gradient) !important;
+  --ion-color-contrast: var(--cs-background-secondary) !important;
+}
+
+.icon-color-primary {
+  color: var(--cs-icon-color-primary, #ffffff) !important;
+  stroke: var(--cs-icon-color-primary, #ffffff) !important;
+  fill: var(--cs-icon-color-primary, #ffffff) !important;
+}
+
+.page1 {
+  .avatar-section {
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    ion-avatar {
+      display: inline-flex;
+      height: 120px;
+      width: 120px;
+    }
+
+    ion-item {
+      --inner-padding-end: 0;
+
+      ion-label {
+        overflow: visible;
+      }
+    }
+  }
+
+  .image-section {
+    ion-item {
+      --inner-padding-end: 0;
+
+      ion-label {
+        height: 250px !important;
+      }
+
+      .background-size {
+        height: 100%;
+      }
+
+      .small-image {
+        height: 100%;
+
+        .background-size {
+          height: calc(50% - 4px);
+        }
+      }
+    }
+  }
+}
+
+.page2 {
+  ion-item {
+    ion-thumbnail {
+      align-self: start;
+      width: 40px;
+      height: 40px;
+    }
+
+    ion-label {
+      align-self: start;
+
+      .title-section {
+        display: flow-root;
+
+        span {
+          line-height: 30px;
+        }
+      }
+
+      .icon-star-section {
+        display: flex;
+
+        ion-icon {
+          margin: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+.page3 {
+  .rating {
+    display: inline-flex;
+  }
+}

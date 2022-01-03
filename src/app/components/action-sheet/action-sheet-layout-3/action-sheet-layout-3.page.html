@@ -1,0 +1,52 @@
+<!-- ACTION SHEET --COMPONENT 3-->
+<ion-page class="ion-page">
+  <!--- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-grid *ngIf="data != null">
+      <ion-row *ngIf="data != null">
+        <!-- Cards Full Image-->
+        <ion-col class="padding-half" size="12" size-md="6"
+        *ngFor="let item of data.items">
+          <ion-card class="box-shadow ion-no-padding border-radius
+          ion-no-margin" (click)="onItemClickFunc(item, $event)">
+            <ion-card-header class="ion-no-padding">
+              <h2 class="new-category ion-text-capitalize ion-no-margin">
+                {{item.category}}</h2>
+              <ion-item lines="none" class="transparent">
+                <ion-label>
+                  <h1 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                    {{item.title}}</h1>
+                  <h2 class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+                    {{item.subtitle}}</h2>
+                </ion-label>
+                <ion-label slot="end" class="overflow-visible ion-padding-end">
+                  <!-- Share Button --->
+                  <ion-button class="ion-float-end" fill="clear"
+                  (click)="presentActionSheet(data, $event)">
+                    <ion-icon class="icon-font-md icon-color-secondary"
+                    slot="icon-only" [name]="data.shareIcon"></ion-icon>
+                  </ion-button>
+                  <div class="clearfix"></div>
+                  <ion-badge class="box-shadow ion-float-end">
+                    {{item.button}}</ion-badge>
+                </ion-label>
+              </ion-item>
+            </ion-card-header>
+            <ion-card-content class="ion-no-padding">
+              <!-- Images -->
+              <ion-img [src]="item.image" alt=""></ion-img>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-page>

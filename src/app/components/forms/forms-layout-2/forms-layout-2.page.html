@@ -1,0 +1,35 @@
+<!-- FORMS --COMPONENT 2 -->
+<ion-grid class="ion-padding-start ion-padding-end" *ngIf="viewEntered">
+  <ion-row>
+    <ion-col size="12" class="ion-text-center">
+      <span class="text-size-sm text-color-primary font-regular">
+        {{data.rateTitle}}</span>
+      <div class="clearfix"></div>
+      <div class="icon-rating padding-half">
+        <div icon *ngFor="let item of data.iconsStars;let i = index"
+        (click)="onRatesFunc(data.iconsStars, i, $event)">
+          <i *ngIf="item.isActive"
+          class="icon {{item.iconActive}} icon-font-sm icon-color-accent"></i>
+          <i *ngIf="!item.isActive"
+          class="icon {{item.iconInactive}} icon-font-sm icon-color-accent"></i>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <span class="text-size-sm text-color-primary font-regular">
+        {{data.title}}</span>
+    </ion-col>
+    <ion-col size="12" class="textarea">
+      <ion-item class="box-shadow input" lines="none">
+        <ion-textarea rows="100%" cols="1"
+        [placeholder]="data.descriptionPlaceholder"
+        [(ngModel)]="item.description"></ion-textarea>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-button class="default-button box-shadow ion-text-capitalize"
+      expand="block" (click)="onSubmitFunc($event)">
+        {{data.btnSubmit}}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,28 @@
+<!-- ANIMATION --COMPONENT 8 -->
+<ion-grid *ngIf="data && data.items" class="ion-no-padding">
+  <ion-row>
+    <ion-col size="12">
+      <ion-list appAnimateItems className="slideInLeft">
+        <ion-list-header class="ion-padding">
+          <h3 class="text-size-sm text-color-accent font-regular ion-no-margin">
+            {{data.allComments}}</h3>
+        </ion-list-header>
+        <ion-item class="default-item animation-normal opacity-0 " lines="none"
+        *ngFor="let item of data.items" (click)="onItemClickFunc(item, $event)">
+          <ion-avatar slot="start">
+            <img [src]="item.image">
+          </ion-avatar>
+          <ion-label class="ion-padding-start">
+            <h3 class="text-size-md text-color-primary font-bold ion-text-wrap">
+              {{item.title}}</h3>
+            <h3 class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+              {{item.time}}</h3>
+            <p class="text-size-p text-color-secondary font-regular
+            ion-padding-top ion-text-wrap">{{item.description}}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

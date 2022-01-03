@@ -1,0 +1,16 @@
+/* Style component 2
+========================================================*/
+
+ion-item-sliding {
+  background: var(--cs-background-secondary, #fff);
+  margin: 8px 8px 0 8px !important;
+  width: calc(100% - 16px);
+}
+
+ion-item {
+  --inner-padding-end: 0;
+}
+
+ion-item-option {
+  background: var(--cs-background-dark, #4d4d4d);
+}

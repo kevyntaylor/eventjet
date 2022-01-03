@@ -1,0 +1,21 @@
+<!--Themes Time Line - Timeline With Cards  -->
+<ion-grid *ngIf="data != null">
+  <ion-row>
+    <ion-col size="11" offset="1">
+      <ion-card class="box-shadow border-radius"
+      *ngFor="let item of data.items; let i= index"
+      (click)="onItemClickFunc(item, $event)">
+        <ion-item lines="none" class="transparent">
+          <ion-label>
+            <p class="text-size-sm text-color-accent font-regular ion-text-wrap">
+              {{item.time}}</p>
+            <h2 class="text-size-xl text-color-primary font-bold ion-text-wrap">
+              {{item.title}}</h2>
+          </ion-label>
+        </ion-item>
+        <ion-img class="ion-padding-start ion-padding-end ion-padding-bottom"
+         [src]="item.image"></ion-img>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

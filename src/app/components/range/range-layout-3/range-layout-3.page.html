@@ -1,0 +1,18 @@
+<ion-list class="background-secondary default-item" lines="none"
+*ngIf="data != null">
+    <ion-item class="transparent" lines="none">
+        <h2 class="text-size-sm text-color-primary font-regular"
+        slot="start">{{data.title}}</h2>
+        <ion-badge class="border-radius" slot="end">{{data.value}}</ion-badge>
+    </ion-item>
+    <ion-item class="transparent" lines="none">
+        <ion-range [min]="data.min" [max]="data.max" [step]="data.step" snaps="true"
+        (ionChange)="onChangeFunc($event)"
+            [(ngModel)]="data.value">
+            <ion-label class="text-size-sm text-color-primary font-regular
+            ion-padding-end" slot="start">{{data.textLeft}}</ion-label>
+            <ion-label class="text-size-xl text-color-primary
+            ion-margin-start font-bold" slot="end">{{data.textRight}}</ion-label>
+        </ion-range>
+    </ion-item>
+</ion-list>

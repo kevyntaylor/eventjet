@@ -1,0 +1,20 @@
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="12">
+      <ion-list class="background-secondary ion-no-padding">
+        <h2 class="text-size-xl text-color-primary font-bold
+        ion-padding-start ion-padding-end">{{data.title}}</h2>
+        <ion-item class="ion-no-padding ion-text-center" input lines="none">
+          <ion-label class="text-size-sd text-color-primary font-regular"
+          position="stacked">{{data.label}}</ion-label>
+          <ion-input required type="text" [(ngModel)]="encodeData">
+          </ion-input>
+        </ion-item>
+        <ion-button class="default-button box-shadow ion-float-end ion-margin"
+          (click)="onButtonClickFunc()">
+          {{data.buttonText}}
+        </ion-button>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

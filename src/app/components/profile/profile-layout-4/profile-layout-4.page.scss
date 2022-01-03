@@ -1,0 +1,30 @@
+/* Profile 4
+========================================*/
+
+ion-card {
+  overflow: visible;
+
+  ion-avatar {
+    margin: -40px auto 0;
+  }
+
+  .social-share {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+}
+/* Settings Slider
+======================================*/
+
+ion-slides {
+  overflow: visible;
+
+  .active {
+    color: var(--cs-icon-color-accent, #2ABDCE) !important;
+  }
+
+  img {
+    width: 100%;
+  }
+}

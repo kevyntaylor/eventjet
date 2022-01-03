@@ -1,0 +1,45 @@
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{headerTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!--- Content -->
+  <ion-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="ion-no-padding" size="12">
+
+          <!-- RANGE 1 -->
+          <cs-range-layout-1
+            [data]="dataLayout1"
+            (onChange)="onChange($event)">
+          </cs-range-layout-1>
+
+          <!-- RANGE 2 -->
+          <cs-range-layout-2
+            [data]="dataLayout2"
+            (onChange)="onChange($event)">
+          </cs-range-layout-2>
+
+          <!-- RANGE 3 -->
+          <cs-range-layout-3
+            [data]="dataLayout3"
+            (onChange)="onChange($event)">
+          </cs-range-layout-3>
+
+          <!-- RANGE 4 -->
+          <cs-range-layout-4
+            [data]="dataLayout4"
+            (onChange)="onChange($event)">
+          </cs-range-layout-4>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>

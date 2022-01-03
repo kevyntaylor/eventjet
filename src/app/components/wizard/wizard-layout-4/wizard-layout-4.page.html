@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-grid class="ion-no-padding" *ngIf="viewEntered">
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides #wizardSlider pager="true" *ngIf="data != null"
+          (ionSlideDidChange)="ionSlideDidChange($event)"
+          (ionSlideReachStart)="ionSlideReachStart($event)"
+          (ionSlideReachEnd)="ionSlideReachEnd($event)">
+            <ion-slide *ngFor="let item of data.items;">
+            <ion-card  class="background-size ion-no-margin no-box-shadow no-border-radius"
+            [ngStyle]="{'background-image': 'url(' + item.backgroundImage + ')'}"></ion-card>
+            </ion-slide>
+        </ion-slides>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card class="ion-no-margin no-box-shadow">
+          <ion-card-header>
+            <h2 class="text-size-lg text-color-primary font-bold ion-text-wrap">
+              {{data.title}}</h2>
+          </ion-card-header>
+          <ion-card-content>
+            <p class="text-size-xs text-color-primary font-regular">
+              {{data.description1}}</p>
+            <ion-img class="ion-margin-top ion-margin-bottom border-radius"
+            [src]="data.image" alt=""></ion-img>
+            <p class="text-size-xs text-color-primary font-regular">
+              {{data.description2}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

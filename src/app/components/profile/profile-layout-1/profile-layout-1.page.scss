@@ -1,0 +1,18 @@
+/* Profile 1
+========================================*/
+:host {
+  --cs-size-avatar: 120px;
+}
+
+.active {
+  color: var(--cs-icon-color-accent, #2ABDCE) !important;
+}
+
+ion-card {
+  // Settings Avatar
+  ion-avatar {
+    height: var(--cs-size-avatar, 120px);
+    width: var(--cs-size-avatar, 120px);
+    margin: 10px auto;
+  }
+}

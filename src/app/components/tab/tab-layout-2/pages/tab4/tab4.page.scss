@@ -1,0 +1,26 @@
+ion-card {
+  .big-image {
+    position: relative;
+    height: 300px;
+    display: flex;
+  }
+
+  .button-icon {
+    margin: auto;
+    background: var(--cs-background-secondary, #FFFFFF);
+    border-radius: var(--border-radius, 8px);
+    color: var(--cs-text-accent, #2ABDCE);
+    --padding-top: 15px;
+    --padding-bottom: 15px;
+    --padding-start: 18px;
+    --padding-end: 18px;
+    --background-hover: var(--cs-background-secondary, #FFFFFF) !important;
+    --color-hover: var(--cs-text-accent, #2ABDCE) !important;
+    --color-activated: var(--cs-text-accent, #2ABDCE) !important;
+    --color-focused: var(--cs-text-accent, #2ABDCE) !important;
+  }
+
+  .rating {
+    display: inline-block;
+  }
+}

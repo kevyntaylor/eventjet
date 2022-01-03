@@ -1,0 +1,36 @@
+/*  # Time Line -- Timeline With Comments
+===========================================*/
+ion-card {
+  overflow: visible;
+  position: relative;
+  box-shadow: none;
+  margin: 15px 10px;
+
+  &:after {
+    content: "";
+    width: 1px;
+    background-color: var(--cs-background-border, #7f8490);
+    top: 10px;
+    left: -20px;
+    bottom: -24px;
+    position: absolute;
+  }
+
+  &:before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--cs-background-accent, #2ABDCE);
+    top: 0;
+    left: -26px;
+    position: absolute;
+    z-index: 999;
+  }
+}
+
+ion-col > ion-card:last-child {
+  &:after {
+    display: none;
+  }
+}

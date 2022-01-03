@@ -1,0 +1,35 @@
+/*  Theme Action Sheet - Basic
+===========================================*/
+
+.header-image {
+  position: relative;
+  z-index: 999;
+}
+// Settings Big Image
+
+.background-size {
+  height: 300px;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: var(--cs-gradient-image);
+    position: absolute;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .info-section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    ion-label {
+      flex: unset;
+    }
+  }
+}

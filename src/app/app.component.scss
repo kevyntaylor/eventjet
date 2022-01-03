@@ -1,0 +1,17 @@
+.background-size {
+  height: 200px;
+  position: relative;
+
+  ion-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    --color: var(--cs-text-primary);
+
+    img {
+      max-width: 185px;
+    }
+  }
+}

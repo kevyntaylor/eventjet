@@ -1,0 +1,24 @@
+<!--Themes Simple -->
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="12">
+      <ion-list>
+        <!-- Header Title Top -->
+        <ion-list-header class="ion-padding-top ion-padding-bottom">
+          <h1 class="text-size-md text-color-accent font-regular ion-no-margin">
+            {{data.title}}</h1>
+        </ion-list-header>
+        <!-- List -->
+        <ion-radio-group [(ngModel)]="data.selectedItem">
+          <ion-item class="default-item" lines="none"
+           *ngFor="let entry of data.items"
+           (click)="onItemClickFunc(entry, $event)">
+            <ion-label class="text-size-md text-color-primary
+            font-bold ion-text-wrap">{{entry.title}}</ion-label>
+            <ion-radio [value]="entry.id"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

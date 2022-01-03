@@ -1,0 +1,50 @@
+/* Style component 2
+========================================================*/
+
+.background-size {
+  height: 300px;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: var(--cs-gradient-image);
+    position: absolute;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .new-category {
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    z-index: 999;
+  }
+}
+
+.slider {
+  overflow-x: scroll;
+  display: -webkit-inline-box;
+  display: flex;
+  flex-direction: row;
+  min-height: 120px;
+
+  ion-card {
+    margin: 4px 4px 16px 4px !important;
+    position: relative;
+    width: 100px;
+    height: auto;
+    flex: none;
+
+    &::after {
+      content: "";
+      background: var(--cs-gradient-image);
+      position: absolute;
+      height: 50%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}

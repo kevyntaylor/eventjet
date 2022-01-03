@@ -1,0 +1,28 @@
+<!-- GOOGLE CARD --COMPONENT 1 -->
+<ion-grid *ngIf="data != null">
+  <ion-row>
+    <ion-col size="12" size-sm="6" *ngFor="let item of data.items">
+      <ion-card class="active background-size box-shadow ion-no-margin border-radius"
+      [ngClass]="{active: item.isActive}" (click)="toggleActive(item)"
+      [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+        <!--Card-content-->
+        <ion-card-title class="transparent" class="ion-padding-start">
+          <h2 class="text-size-xl text-color-light font-bold ion-text-wrap">
+            {{item.title}}</h2>
+        </ion-card-title>
+        <div class="info-section">
+          <ion-icon class="icon-font-lg icon-color-primary
+          ion-no-padding" name="chevron-back"></ion-icon>
+        </div>
+        <ion-card-content>
+          <ion-card-subtitle class="ion-no-padding">
+            <h2 class="text-size-xl text-color-primary font-bold ion-text-wrap">
+              {{item.title}}</h2>
+            <p class="text-size-p text-color-primary font-regular ion-text-wrap ion-padding-top">
+              {{item.description}}</p>
+          </ion-card-subtitle>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

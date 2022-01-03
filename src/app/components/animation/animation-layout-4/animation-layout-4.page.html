@@ -1,0 +1,45 @@
+<!-- ANIMATION --COMPONENT 4 -->
+<ion-grid *ngIf="data && data.items">
+  <ion-row appAnimateItems className="zoomIn">
+    <ion-col size="12" size-md="6" size-lg="3"  *ngFor="let item of data.items"
+    (click)="onItemClickFunc(item, $event)" class="animation-normal opacity-0">
+      <ion-card class="box-shadow ion-no-margin border-radius">
+        <h2 class="new-category ion-no-margin">{{item.subtitle}}</h2>
+        <ion-img [src]="item.image"></ion-img>
+        <ion-card-content class="ion-no-padding">
+          <ion-item class="transparent" lines="none">
+            <ion-label>
+              <!-- Card Title -->
+              <h2 class="text-size-xl text-color-primary font-bold">
+                {{item.title}}</h2>
+              <!-- Card Badge - Price -->
+              <span class="text-size-md text-color-secondary font-regular">
+                {{item.price}}</span>
+            </ion-label>
+            <ion-button slot="end"
+             class="default-button box-shadow ion-text-capitalize ion-margin">
+              {{item.button}}</ion-button>
+          </ion-item>
+          <ion-row class="ion-padding-start ion-padding-end">
+            <ion-col size="auto" class="ion-no-padding">
+              <!-- Button Like -->
+              <ion-button class="button-icon ion-text-capitalize">
+                <ion-icon slot="start" class="icon-font-md icon-color-secondary"
+                 [name]="item.iconLike"></ion-icon>
+                {{item.buttonLike}}
+              </ion-button>
+            </ion-col>
+            <ion-col size="auto" class="ion-no-padding">
+              <!-- Button Comment -->
+              <ion-button class="button-icon ion-text-capitalize">
+                <ion-icon slot="start" class="icon-font-md icon-color-secondary"
+                [name]="item.iconComment"></ion-icon>
+                {{item.buttonComment}}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

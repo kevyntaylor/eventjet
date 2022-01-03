@@ -1,0 +1,24 @@
+/* Style component 5
+========================================================*/
+:host {
+  --size-ion-thumbnail: 120px !important;
+}
+
+ion-item {
+  ion-thumbnail {
+    min-height: var(--size-ion-thumbnail);
+    min-width: var(--size-ion-thumbnail);
+  }
+
+  .text-size-sm {
+    margin-top: 8px;
+  }
+  /* Settings Old Price */
+  .old-price {
+    text-decoration: line-through;
+  }
+
+  .new-price {
+    font-size: var(--h2-font-size);
+  }
+}

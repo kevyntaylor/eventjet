@@ -1,0 +1,10 @@
+<!--Theme Fade in + Ken Burns-->
+<ion-grid class="ion-no-padding">
+  <ion-row>
+    <ion-col size="12">
+      <img class="background-size"
+      [ngStyle]="{'background-image': 'url(' + data.backgroundImage + ')'}" />
+      <ion-img class="animate-me" #box [src]="data.logo"></ion-img>
+    </ion-col>
+  </ion-row>
+</ion-grid>

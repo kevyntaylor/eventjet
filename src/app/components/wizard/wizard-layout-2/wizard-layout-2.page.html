@@ -1,0 +1,46 @@
+<!--  Theme Form - Form + Write Comment -->
+  <ion-grid class="ion-no-padding" *ngIf="viewEntered">
+    <ion-row>
+      <ion-col size="12">
+        <div class="big-image background-size"
+        [ngStyle]="{'background-image': 'url(' + data.backgroundImage + ')'}">
+        </div>
+      </ion-col>
+      <ion-col class="slides-section" size="12">
+        <ion-slides #wizardSlider *ngIf="data != null" pager="true"
+        (ionSlideDidChange)="ionSlideDidChange($event)"
+        (ionSlideReachStart)="ionSlideReachStart($event)"
+        (ionSlideReachEnd)="ionSlideReachEnd($event)">
+          <ion-slide *ngFor="let item of data.items;">
+            <!--Card-->
+            <ion-card class="ion-text-start box-shadow border-radius background-size"
+             [ngStyle]="{'background-image': 'url(' + item.backgroundSlider + ')'}">
+              <!--Card content-->
+              <ion-card-content class="ion-text-center transparent">
+                <!--Wiazard Subtitle-->
+                <p class="text-size-xs text-color-primary font-light">{{item.welcome}}</p>
+                <div class="clearfix"></div>
+                <!--Wizard Title-->
+                <h1 class="text-size-md text-color-primary font-bold">{{item.title}}</h1>
+                <div class="clearfix"></div>
+                <!--Wizard Description-->
+                <p class="text-size-xs text-color-primary font-regular ion-padding-top">
+                  {{item.description}}</p>
+                <!--Button section-->
+                <div class="ion-margin-top" *ngIf="data != null">
+                  <ion-button class="default-button ion-text-capitalize"
+                  (click)="onNextFunc()" *ngIf="next">
+                    {{data.btnNext}}
+                  </ion-button>
+                  <ion-button class="default-button ion-text-capitalize"
+                  (click)="onFinishFunc()" *ngIf="!next">
+                    {{data.btnFinish}}
+                  </ion-button>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>

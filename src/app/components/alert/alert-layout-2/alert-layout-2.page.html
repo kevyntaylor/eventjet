@@ -1,0 +1,33 @@
+<!-- ALERT --COMPONENT 2 -->
+<ion-grid>
+  <ion-row *ngIf="data != null">
+    <ion-col size="12" size-md="6" *ngFor="let item of data.items"
+    (click)="presentAlert(item, $event)">
+      <!-- Card -->
+      <ion-card class="ion-no-padding ion-no-margin box-shadow border-radius">
+        <ion-img [src]="item.image"></ion-img>
+        <ion-card-content class="ion-text-center">
+          <h2 class="ion-text-capitalize text-size-md text-color-primary font-bold">
+            {{item.title}}</h2>
+          <span class="ion-text-capitalize text-size-sm text-color-primary font-regular">
+            {{item.category}}</span>
+          <div class="clerfix"></div>
+          <!-- Button Like -->
+          <ion-button class="button-icon">
+            <ion-icon slot="start" class="icon-font-sm icon-color-secondary"
+            [name]="item.iconLike"
+            (click)="onLikeFunc(item, $event)"></ion-icon>
+            {{item.numberLike}}
+          </ion-button>
+          <!-- Button Commnets -->
+          <ion-button class="button-icon">
+            <ion-icon slot="start" class="icon-font-sm icon-color-secondary"
+            [name]="item.iconComment"
+            (click)="onCommentFunc(item, $event)"></ion-icon>
+            {{item.numberCommnet}}
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

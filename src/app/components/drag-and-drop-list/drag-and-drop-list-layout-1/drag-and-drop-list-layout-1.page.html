@@ -1,0 +1,41 @@
+<!-- DRAGEN AND DROP --COMPONENT 1 -->
+<ion-grid class="ion-no-padding" *ngIf="data != null">
+  <ion-row>
+    <ion-col size="12">
+      <ion-list>
+        <ion-list-header>
+          <ion-label class="ion-padding-top ion-padding-bottom">
+            <h1 class="text-size-md font-regular
+            text-color-accent ion-no-margin">
+            {{data.header}}</h1>
+          </ion-label>
+        </ion-list-header>
+        <ion-reorder-group disabled="false"
+        (ionItemReorder)="ionItemReorder($event)">
+          <ion-item class="default-item" lines="none"
+          *ngFor="let item of data.items"
+          (click)="onItemClickFunc(item, $event)">
+            <ion-label>
+              <!-- Content Title -->
+              <h2 class="text-size-md font-bold
+              text-color-primary ion-text-wrap">
+              {{item.title}}</h2>
+              <!-- Content Subtitle -->
+              <h3 class="text-size-sm text-color-secondary
+              font-regular ion-text-wrap">
+              {{item.subtitle}}</h3>
+              <!-- Content Subtitle -->
+              <p class="text-size-xs text-color-secondary
+              font-regular ion-text-wrap">
+              {{item.description}}</p>
+            </ion-label>
+            <ion-reorder class="ion-no-margin" slot="end">
+              <ion-icon class="icon-color-primary icon-font-lg"
+              name="reorder-three"></ion-icon>
+            </ion-reorder>
+          </ion-item>
+        </ion-reorder-group>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

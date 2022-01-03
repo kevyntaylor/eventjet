@@ -1,0 +1,11 @@
+<ion-list class="background-secondary default-item" *ngIf="data != null">
+  <ion-item class="transparent" lines="none">
+    <h2 class="text-size-sm text-color-primary font-regular"
+    slot="start">{{data.title}}</h2>
+    <ion-badge class="border-radius" slot="end">{{data.value}}</ion-badge>
+  </ion-item>
+  <ion-item class="transparent" lines="none">
+    <ion-range [(ngModel)]="data.value" (ionChange)="onChangeFunc($event)">
+    </ion-range>
+  </ion-item>
+</ion-list>

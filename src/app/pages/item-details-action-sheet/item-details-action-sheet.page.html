@@ -1,0 +1,29 @@
+<ion-app>
+  
+    <!-- PAGE 1 -->
+    <cs-action-sheet-layout-1
+      *ngIf="isType(0)"
+      [data]="data"
+      (onChangeScroll)="onChangeScroll($event)"
+      (onItemClickActionSheet)="onItemClickActionSheet($event)"
+      (onProceed)="onProceed($event)"
+      (onItemClick)="onItemClick($event)">
+    </cs-action-sheet-layout-1>
+
+    <!-- PAGE 2 -->
+    <cs-action-sheet-layout-2
+      *ngIf="isType(1)"
+      [data]="data"
+      (onChangeScroll)="onChangeScroll($event)"
+      (onItemClickActionSheet)="onItemClickActionSheet($event)"
+      (onItemClick)="onItemClick($event)">
+    </cs-action-sheet-layout-2>
+
+    <!-- PAGE 3 -->
+    <cs-action-sheet-layout-3
+      *ngIf="isType(2)"
+      [data]="data"
+      (onItemClick)="onItemClick($event)">
+    </cs-action-sheet-layout-3>
+
+</ion-app>

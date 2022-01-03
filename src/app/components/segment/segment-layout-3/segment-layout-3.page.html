@@ -1,0 +1,190 @@
+<!-- Theme Segment - Segment List -->
+<ion-page class="ion-page">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title *ngIf="data != null" class="ion-text-capitalize">
+        {{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+    <ion-toolbar class="background-secondary" *ngIf="data != null">
+        <ion-segment scrollable [(ngModel)]="selectedItem">
+          <ion-segment-button class="ion-text-capitalize" value="Page1">
+            <ion-label>{{data.segmentButton1}}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="ion-text-capitalize "value="Page2">
+            <ion-label>{{data.segmentButton2}}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="ion-text-capitalize" value="Page3">
+            <ion-label>{{data.segmentButton3}}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Content-->
+  <ion-content>
+    <ion-grid *ngIf="data != null">
+
+      <!--- SETTINGS PAGE1 SCREEN -->
+      <ion-row class="page1" *ngIf="isEnabled('Page1') && data.page1 != null">
+        <ion-col size="12">
+          <ion-card class="ion-text-center box-shadow border-radius ion-no-margin">
+            <ion-item class="transparent" lines="none">
+              <ion-avatar slot="start">
+                <img [src]="data.page1.image" alt="">
+              </ion-avatar>
+              <ion-label class="ion-padding-start">
+                <h1 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                  {{data.page1.title}}</h1>
+                <p class="text-size-xs text-color-primary font-light ion-text-wrap">
+                  {{data.page1.subtitle}}</p>
+              </ion-label>
+            </ion-item>
+            <div class="social-share">
+              <!-- Followers-->
+              <ion-item class="transparent" lines="none">
+                <ion-label class="ion-text-center">
+                  <span class="text-size-xs text-color-primary font-regular">
+                    {{data.page1.valueFollowers}}</span>
+                  <div class="clearfix"></div>
+                  <h2 class="text-size-xs text-color-primary font-regular">
+                    {{data.page1.followers}}</h2>
+                </ion-label>
+              </ion-item>
+              <!-- Following -->
+              <ion-item class="transparent" lines="none">
+                <ion-label class="ion-text-center">
+                  <span class="text-size-xs text-color-primary font-regular">
+                    {{data.page1.valueFollowing}}</span>
+                  <div class="clearfix"></div>
+                  <h2 class="text-size-xs text-color-primary font-regular">
+                    {{data.page1.following}}</h2>
+                </ion-label>
+              </ion-item>
+              <!-- Post -->
+              <ion-item class="transparent" lines="none">
+                <ion-label class="ion-text-center">
+                  <span class="text-size-xs text-color-primary font-regular">
+                    {{data.page1.valuePosts}}</span>
+                  <div class="clearfix"></div>
+                  <h2 class="text-size-xs text-color-primary font-regular">
+                    {{data.page1.posts}}</h2>
+                </ion-label>
+              </ion-item>
+            </div>
+          </ion-card>
+        </ion-col>
+
+        <!-- Popular -->
+        <ion-col size="12">
+          <h1 class="ion-text-uppercase text-size-sm text-color-accent ion-no-margin
+          padding-half font-bold ion-text-center">{{data.page1.category}}</h1>
+        </ion-col>
+
+        <ion-col size="12" size-md="4"
+        *ngFor="let item of data.page1.items;let i = index"
+        (click)="onItemClickFunc(item, $event)">
+          <ion-card class="ion-no-padding ion-text-center box-shadow ion-no-margin">
+            <img class="backgroundCard" [src]="item.backgroundCard" alt="">
+            <ion-card-content>
+              <span class="text-size-xs text-color-secondary font-bold
+              ion-text-capitalize">{{item.category}}</span>
+              <h1 class="text-size-md ion-text-wrap text-color-primary
+              font-regular ion-padding-top">{{item.title}}</h1>
+            </ion-card-content>
+            <ion-button class="button-icon ion-text-capitalize"
+            (click)="onLikeFunc(item, $event)">
+              <ion-icon class="icon-font-sm icon-color-secondary" slot="start"
+              [ngClass]="{'active' : item.like.isActive}"
+              [name]="item.like.icon"></ion-icon>
+              {{item.like.number}} {{item.like.text}}
+            </ion-button>
+            <ion-button class="button-icon ion-text-capitalize"
+            (click)="onCommentFunc(item, $event)">
+              <ion-icon class="icon-font-sm icon-color-secondary"
+              slot="start" [name]="item.comment.icon"></ion-icon>
+              {{item.comment.number}} {{item.comment.text}}
+            </ion-button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!--- SETTINGS PAGE2 SCREEN -->
+      <ion-row class="page2" *ngIf="isEnabled('Page2') && data.page2 != null">
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item lines="none" class="transparent">
+            <ion-label>
+              <h1 class="ion-no-margin text-color-primary font-bold
+              text-size-md">{{data.page2.title}}</h1>
+            </ion-label>
+            <ion-button class="clear-button ion-text-capitalize "slot="end" fill="clear">
+              {{data.page2.buttonSeeAll}}
+            </ion-button>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12" class="slider ion-no-padding">
+          <ion-card class="border-radius box-shadow"
+          *ngFor="let item of data.page2.slider">
+            <ion-img [src]="item.image" [alt]="item.imageAlt"></ion-img>
+            <ion-card-content>
+              <h3 class="text-size-p text-color-primary font-regular
+              ion-text-wrap ion-no-margin">{{item.subtitle}}</h3>
+              <h2 class="text-size-sm text-color-primary font-bold ion-text-wrap">
+                {{item.title}}</h2>
+              <ion-button class="button-icon">
+                <ion-icon class="icon-font-sm icon-color-secondary"
+                slot="start" [name]="item.iconLike"></ion-icon>
+                {{item.like}}
+              </ion-button>
+              <ion-button class="button-icon">
+                <ion-icon class="icon-font-sm icon-color-secondary"
+                slot="start" [name]="item.iconComment"></ion-icon>
+                {{item.comment}}
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" size-md="6"
+        *ngFor="let item of data.page2.items; let i= index"
+        (click)="onItemClickFunc(item, $event)">
+          <!-- Card -->
+          <ion-card class="ion-no-padding box-shadow border-radius
+          ion-no-margin background-size"
+          [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+            <ion-card-header class="transparent">
+              <h1 class="ion-text-wrap font-bold text-color-light
+              text-size-xl ion-no-margin">{{item.title}}</h1>
+            </ion-card-header>
+            <ion-card-content class="transparent">
+              <span class="text-size-sm font-bold
+              ion-text-uppercase text-color-light">{{item.time}}</span>
+              <p class="text-size-p text-color-light font-regular">
+                {{item.description}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <!--- SETTINGS PAGE3 SCREEN -->
+      <ion-row class="page3" *ngIf="isEnabled('Page3') && data.page3 != null">
+        <ion-col size="12" size-md="4"
+        *ngFor="let item of data.page3.items; let i= index">
+          <!-- Card -->
+          <ion-card class="border-radius background-size box-shadow ion-no-margin "
+          [ngStyle]="{'background-image': 'url(' + item.backgroundImage + ')'}">
+            <ion-card-content>
+              <h2 class="text-size-sm font-bold text-uppercase text-color-light">
+                {{item.title}}</h2>
+              <!--Description-->
+              <h3 class="ion-text-wrap ion-padding-top text-color-light
+              text-size-md font-regular">{{item.description}}</h3>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-page>

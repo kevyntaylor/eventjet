@@ -1,0 +1,16 @@
+<ion-list class="background-secondary default-item" lines="none"
+*ngIf="data != null">
+  <ion-item class="transparent" lines="none">
+      <h2 class="text-size-sm text-color-primary font-regular"
+      slot="start">{{data.title}}</h2>
+  </ion-item>
+    <ion-item class="transparent" lines="none">
+        <ion-range dualKnobs="true" pin="true" [(ngModel)]="data.value"
+        (ionChange)="onChangeFunc($event)">
+          <ion-label class="text-size-sm text-color-primary font-regular
+          ion-padding-end" slot="start">{{data.textLeft}}</ion-label>
+          <ion-label class="text-size-xl text-color-primary
+          ion-margin-start font-bold" slot="end">{{data.textRight}}</ion-label>
+        </ion-range>
+    </ion-item>
+</ion-list>

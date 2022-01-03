@@ -1,0 +1,44 @@
+<!-- FORMS --COMPONENT 3 -->
+<ion-grid class="ion-padding" *ngIf="viewEntered">
+   <ion-row>
+      <!-- Full Name -->
+      <ion-col size="12" class="ion-align-self-start">
+        <ion-item class="ion-margin-bottom box-shadow input" lines="none">
+            <ion-input type="text" [placeholder]="data.firstName"
+            [(ngModel)]="item.firstName"></ion-input>
+         </ion-item>
+         <!-- Last Name -->
+         <ion-item class="ion-margin-bottom box-shadow input" lines="none">
+            <ion-input type="text" [placeholder]="data.lastName"
+            [(ngModel)]="item.lastName"></ion-input>
+         </ion-item>
+         <!-- Address Line 1 -->
+         <ion-item class="ion-margin-bottom box-shadow input" lines="none">
+            <ion-input type="text" [placeholder]="data.addressLine1"
+            [(ngModel)]="item.address1"></ion-input>
+         </ion-item>
+         <!-- Address Line 2 -->
+         <ion-item class="ion-margin-bottom box-shadow input" lines="none">
+            <ion-input type="text" [placeholder]="data.addressLine2"
+            [(ngModel)]="item.address2"></ion-input>
+         </ion-item>
+         <!-- City -->
+         <ion-item class="ion-margin-bottom box-shadow input" lines="none">
+            <ion-input type="text" [placeholder]="data.city"
+            [(ngModel)]="item.city"></ion-input>
+         </ion-item>
+         <!-- Zip Code -->
+         <ion-item class="ion-margin-bottom box-shadow input" lines="none">
+            <ion-input type="number" [placeholder]="data.zipCode"
+            [(ngModel)]="item.zipCode"></ion-input>
+         </ion-item>
+      </ion-col>
+      <!-- Button Write Comment -->
+      <ion-col size="12" class="ion-align-self-end">
+         <ion-button class="default-button box-shadow ion-text-capitalize"
+         expand="block" (click)="onSubmitFunc($event)">
+            {{data.button}}
+         </ion-button>
+      </ion-col>
+   </ion-row>
+</ion-grid>

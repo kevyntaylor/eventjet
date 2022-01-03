@@ -1,0 +1,145 @@
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <div class="ion-no-padding ion-margin-bottom background-secondary"
+     *ngIf="data != null">
+      <!-- Header Image -->
+      <div class="background-size"
+      [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+      </div>
+      <!--- Info Block -->
+      <ion-item class="info-block ion-text-center transparent ion-no-padding" lines="none">
+        <!-- Avatar -->
+        <ion-avatar *ngIf="data != null">
+          <img [src]="data.avatar" />
+        </ion-avatar>
+      </ion-item>
+      <ion-item class="ion-text-center transparent ion-no-padding" lines="none">
+        <ion-label class="ion-padding-start ion-padding-end">
+          <!-- Avatar Title -->
+          <h1 class="ion-no-margin text-color-primary font-bold text-size-md ion-text-wrap"
+          *ngIf="data != null">{{data.title}}</h1>
+          <!-- Avatar Subitle -->
+          <h2 class="ion-no-margin text-color-secondary font-regular text-size-sm ion-text-wrap"
+          *ngIf="data != null">{{data.subtitle}}</h2>
+          <!-- Avatar Description -->
+          <h3 class="ion-no-margin text-color-secondary font-regular text-size-sm ion-text-wrap "
+          *ngIf="data != null">{{data.description}}</h3>
+        </ion-label>
+      </ion-item>
+      <ion-row class="ion-padding" *ngIf="data != null">
+        <!-- Button Follow -->
+        <ion-col size="6" class="padding-half-end">
+          <ion-button class="default-button ion-text-capitalize" expand="block">
+            {{data.follow}}</ion-button>
+        </ion-col>
+        <!-- Button Massage -->
+        <ion-col size="6" class="padding-half-start">
+          <ion-button class="default-button ion-text-capitalize" expand="block">
+            {{data.massage}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-row class="background-secondary padding-half ion-margin-top ion-margin-bottom" *ngIf="data != null">
+      <ion-col size="12" class="padding-half">
+        <ion-item class="ion-no-padding transparent" lines="none">
+          <ion-label>
+            <h1 class="ion-no-margin text-color-primary font-medium text-size-md">
+              {{data.listFriends}}</h1>
+            <h3 class="ion-no-margin text-color-primary font-regular text-size-sm">
+              {{data.namberFriends}}</h3>
+          </ion-label>
+          <ion-button class="clear-button ion-text-capitalize" slot="end" fill="clear">
+            {{data.buttonSeeAll}}
+          </ion-button>
+        </ion-item>
+      </ion-col>
+      <ion-col size-xs="3" size-xl="2" size-="2" class="padding-half"
+      *ngFor="let item of data.friends;">
+        <ion-card class="ion-no-padding no-box-shadow ion-no-margin">
+          <ion-img class="border-radius" [src]="item.image" [alt]="item.imageAlt"></ion-img>
+          <ion-card-content class="ion-text-center ion-no-padding">
+            <h2 class="text-size-p text-color-primary font-bold ion-text-wrap">
+              {{item.title}}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="background-secondary padding-half ion-margin-top ion-margin-bottom" *ngIf="data != null">
+      <ion-col size="12" class="padding-half ">
+        <ion-item class="ion-no-padding transparent" lines="none">
+          <ion-label>
+            <h1 class="ion-no-margin text-color-primary font-medium text-size-md">
+              {{data.gallery}}</h1>
+            <h3 class="ion-no-margin text-color-primary font-regular text-size-sm">
+              {{data.namberImages}}</h3>
+          </ion-label>
+          <ion-button class="clear-button ion-text-capitalize" slot="end" fill="clear">
+            {{data.buttonSeeAllImages}}
+          </ion-button>
+        </ion-item>
+      </ion-col>
+      <ion-col class="padding-half" size-xs="6" size-xl="4" size="3"
+       *ngFor="let item of data.fullGallery">
+        <!-- Card -->
+        <ion-card class="box-shadow border-radius no-box-shadow ion-no-margin">
+          <!-- Card Big Image-->
+          <ion-img [src]="item.image"></ion-img>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="background-secondary ion-padding-top ion-padding-bottom"
+    *ngIf="data != null">
+      <ion-col size="12" class="ion-no-padding">
+        <ion-item lines="none" class="transparent">
+          <ion-label>
+            <h1 class="ion-no-margin text-color-primary font-medium text-size-md">
+              {{data.timeline}}</h1>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="padding-half background-secondary">
+      <ion-col class="padding-half" size-xs="12" size-xl="6" size="4"
+      *ngFor="let item of data.items">
+        <!-- Card -->
+        <ion-card class="box-shadow ion-no-padding ion-no-margin border-radius">
+          <ion-item lines="none" class="transparent">
+            <!-- Avatar -->
+            <ion-avatar slot="start">
+              <img [src]="item.avatar" alt="">
+            </ion-avatar>
+            <!-- Title And Subtitle -->
+            <ion-label class="ion-padding-start">
+              <h2 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                {{item.title}}</h2>
+              <h3 class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+                {{item.subtitle}}</h3>
+              <!-- Time -->
+              <p class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+                {{item.time}}</p>
+            </ion-label>
+          </ion-item>
+          <!-- Images -->
+          <ion-img [src]="item.image" alt=""></ion-img>
+          <!-- Content -->
+          <ion-card-content>
+            <h2 class="text-size-md text-color-primary font-bold ion-text-wrap ion-padding-top">
+              {{item.cardTitle}}</h2>
+            <p class="text-size-p text-color-secondary font-regular ion-padding-top">
+              {{item.description}}</p>
+            <ion-button class="button-icon ion-text-capitalize">
+              <ion-icon slot="start" class="icon-font-sm icon-color-secondary"
+              [name]="item.iconLike"></ion-icon>
+              {{item.numberLike}}
+            </ion-button>
+            <ion-button class="button-icon ion-text-capitalize">
+              <ion-icon slot="start" class="icon-font-sm icon-color-secondary"
+              [name]="item.iconComment"></ion-icon>
+              {{item.numberCommnet}}
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

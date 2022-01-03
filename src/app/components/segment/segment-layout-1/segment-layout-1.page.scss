@@ -1,0 +1,33 @@
+/* Settings Button
+===========================================*/
+.page1 {
+
+  .background-size {
+    position: relative;
+
+    ion-avatar {
+      width: 120px !important;
+      height: 120px !important;
+      margin: 15px auto 20px;
+    }
+  }
+
+  .social-share {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+}
+
+.page2,
+.page3 {
+  .background-size {
+    height: 250px;
+  }
+}
+
+.page4 {
+  ion-list-header {
+    display: block;
+  }
+}

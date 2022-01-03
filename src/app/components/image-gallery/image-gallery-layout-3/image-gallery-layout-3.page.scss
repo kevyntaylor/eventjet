@@ -1,0 +1,17 @@
+ion-card {
+  height: 170px;
+  position: relative;
+  display: grid;
+  align-items: center;
+
+  &::after {
+    content: "";
+    background: var(--cs-gradient-image);
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

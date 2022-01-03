@@ -1,0 +1,27 @@
+<ion-app>
+  <!-- Content-->
+  <ion-content>
+
+    <!-- Page 1 -->
+    <cs-splash-screen-layout-1
+      *ngIf="isType(0)"
+      [data]="data"
+      (onRedirect)="onRedirect($event)">
+    </cs-splash-screen-layout-1>
+
+    <!-- Page 2 -->
+    <cs-splash-screen-layout-2
+      *ngIf="isType(1)"
+      [data]="data"
+      (onRedirect)="onRedirect($event)">
+    </cs-splash-screen-layout-2>
+
+    <!-- Page 3 -->
+    <cs-splash-screen-layout-3
+      *ngIf="isType(2)"
+      [data]="data"
+      (onRedirect)="onRedirect($event)">
+    </cs-splash-screen-layout-3>
+
+  </ion-content>
+</ion-app>

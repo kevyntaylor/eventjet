@@ -1,0 +1,143 @@
+<!-- Theme Segment - Segment List -->
+<ion-page class="ion-page" *ngIf="viewEntered">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title *ngIf="data != null" class="ion-text-capitalize">
+        {{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Content-->
+  <ion-content>
+    <super-tabs>
+      <super-tabs-toolbar slot="top" scrollable>
+        <super-tab-button *ngFor="let item of data.segmentHeader;">
+          <ion-icon class="icon-font-md icon-color-primary" [name]="item.icon"></ion-icon>
+        </super-tab-button>
+      </super-tabs-toolbar>
+      <super-tabs-container>
+
+        <super-tab>
+        <!--- SETTINGS PAGE1 SCREEN -->
+          <ion-grid class="padding-half" *ngIf="data != null && data.page1 != null">
+            <ion-row class="page1">
+              <ion-col class="ion-no-padding" size="12" size-md="6" *ngFor="let item of data.page1.items; let i= index"
+              (click)="onItemClickFunc(item, $event)">
+                <!-- Card Big Image-->
+                <ion-card class="box-shadow border-radius margin-half">
+                  <div class="ion-no-padding background-size" [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+                    <!-- Button with icon -->
+                    <ion-icon class="icon-font-md icon-color-primary ion-float-end margin-half" [name]="item.icon"></ion-icon>
+                  </div>
+                  <!-- Card content -->
+                  <ion-card-content class="ion-no-padding-top">
+                    <ion-item class="transparent ion-no-padding" lines="none">
+                      <ion-label>
+                        <!-- Card content title -->
+                        <h2 class="text-size-md text-color-primary font-bold ion-text-wrap">
+                          {{item.title}}</h2>
+                        <div class="icon-star-section">
+                          <!-- Icon Rating Star -->
+                          <ion-icon class="icon-color-accent icon-font-sm" *ngFor="let item of item.iconsStars;let i = index" slot="start" [name]="item.icon"></ion-icon>
+                        </div>
+                      </ion-label>
+                      <!-- Price -->
+                      <ion-label class="ion-text-end">
+                        <h2 class="text-size-sm text-color-secondary font-bold ion-text-wrap">
+                          {{item.price}}</h2>
+                        <h2 class="text-size-sm text-color-secondary font-regular ion-text-wrap">
+                          {{item.available}}</h2>
+                      </ion-label>
+                    </ion-item>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </super-tab>
+
+        <super-tab>
+        <!--- SETTINGS PAGE2 SCREEN -->
+          <ion-grid class="ion-no-padding page2" *ngIf="data != null && data.page2 != null">
+            <ion-row>
+              <ion-col size="12">
+                <ion-list>
+                  <ion-list-header class="ion-no-padding">
+                    <h3 class="text-size-sm text-color-accent font-regular ion-no-margin ion-padding">
+                      {{data.page2.allComments}}</h3>
+                  </ion-list-header>
+                  <ion-item class="default-item" lines="none" *ngFor="let item of data.page2.items" (click)="onItemClickFunc(item, $event)">
+                    <ion-avatar slot="start">
+                      <img [src]="item.image">
+                    </ion-avatar>
+                    <ion-label class="ion-padding-start">
+                      <h3 class="text-size-md text-color-primary
+                      font-bold ion-text-wrap">{{item.title}}</h3>
+                      <h3 class="text-size-sm text-color-secondary
+                      font-regular ion-text-wrap">{{item.time}}</h3>
+                      <p class="text-size-p text-color-secondary
+                      font-regular ion-padding-top ion-text-wrap">
+                        {{item.description}}
+                      </p>
+                    </ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </super-tab>
+
+        <super-tab>
+        <!--- SETTINGS PAGE3 SCREEN -->
+          <ion-grid class="ion-no-padding page3" *ngIf="data != null && data.page3 != null">
+            <ion-row>
+              <ion-col size="12">
+                <ion-item lines="none">
+                  <!--- Total Rating Icon -->
+                  <div *ngFor="let item of data.page3.iconsStars; let i = index;">
+                    <ion-icon class="icon-font-sm icon-color-accent" [name]="item.iconStar">
+                    </ion-icon>
+                  </div>
+                  <span class="text-size-sm font-regular text-color-accent ion-padding-start">
+                    {{data.page3.rating}}</span>
+                </ion-item>
+              </ion-col>
+              <ion-col size="12">
+                <ion-card class="default-item no-box-shadow" *ngFor="let item of data.page3.items; let i = index;" (click)="onItemClickFunc(item, $event)">
+                  <ion-item class="transparent" lines="none">
+                    <ion-label>
+                      <!--- Time -->
+                      <p class="text-size-sm font-regular text-color-secondary">
+                        {{item.time}}</p>
+                    </ion-label>
+                    <!--- Rating Icon -->
+                    <div class="rating">
+                      <div *ngFor="let item of item.iconsStars; let i = index;">
+                        <ion-icon class="icon-font-sm icon-color-accent
+                        " [name]="item.iconStar">
+                        </ion-icon>
+                      </div>
+                    </div>
+                  </ion-item>
+                  <ion-card-content>
+                    <!--- Title -->
+                    <h2 class="text-size-md font-bold text-color-primary">
+                      {{item.title}}</h2>
+                    <!--- Description -->
+                    <h3 class="text-size-p font-regular text-color-secondary">
+                      {{item.description}}
+                    </h3>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </super-tab>
+
+      </super-tabs-container>
+    </super-tabs>
+  </ion-content>
+</ion-page>

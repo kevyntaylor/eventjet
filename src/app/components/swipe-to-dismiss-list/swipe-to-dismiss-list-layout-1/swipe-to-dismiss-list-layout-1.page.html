@@ -1,0 +1,66 @@
+<!-- SWIPE TO DISMISS --COMPONENT 1 -->
+<ion-grid class="ion-no-padding" *ngIf="data != null">
+  <ion-row>
+    <ion-col size="12">
+      <ion-list #dynamicList>
+        <!--Header-->
+        <ion-list-header class="ion-no-padding">
+          <!-- Title and Subtitle -->
+          <ion-label class="ion-text-center ion-padding">
+            <h1 class="text-size-md font-regular text-color-primary ion-text-wrap">
+                {{data.title}}</h1>
+            <h2 class="text-size-sm text-color-accent font-regular ion-text-wrap">
+              {{data.subtitle}}</h2>
+            <ion-button class="default-button box-shadow ion-margin-top" expand="block">
+              {{data.button}}
+            </ion-button>
+          </ion-label>
+        </ion-list-header>
+        <!-- Content List -->
+        <ion-item-sliding #sliding (click)="onItemClickFunc(item, $event)"
+        disabled="false" *ngFor="let item of data.items">
+          <ion-item class="default-item" lines="none">
+            <ion-label>
+              <!-- Title -->
+              <h2 class="text-size-md font-bold text-color-primary
+              ion-text-wrap">{{item.title}}</h2>
+              <!-- Subtitle -->
+              <h3 class="text-size-sm text-color-secondary
+              font-regular ion-text-wrap">{{item.subtitle}}</h3>
+              <p class="text-size-sm font-regular text-color-secondary
+              ion-text-wrap">{{item.time}}</p>
+            </ion-label>
+            <div class="icon-info">
+              <ion-icon class="icon-font-md icon-color-primary"
+              [name]="item.icon"></ion-icon>
+            </div>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="onDeleteFunc(item, $event)">
+              <!-- Button Delate -->
+              <ion-button class="button-top-icon ion-text-capitalize" fill="clear">
+                <ion-label>
+                  <ion-icon class="icon-font-md icon-color-secondary"
+                  [name]="item.iconDelate"></ion-icon>
+                  <h2 class="text-size-md text-color-primary font-regular">
+                    {{item.delate}}</h2>
+                </ion-label>
+              </ion-button>
+            </ion-item-option>
+            <ion-item-option (click)="onUndoFunc($event)">
+              <!-- Button Undo -->
+              <ion-button class="button-top-icon ion-text-capitalize" fill="clear">
+                <ion-label>
+                  <ion-icon class="icon-font-md icon-color-secondary"
+                  [name]="item.iconUndo"></ion-icon>
+                  <h2 class="text-size-md text-color-primary font-regular">
+                    {{item.reply}}</h2>
+                </ion-label>
+              </ion-button>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

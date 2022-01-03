@@ -1,0 +1,28 @@
+/* Style component 1
+========================================================*/
+
+ion-card {
+  height: 170px;
+  margin: 0 !important;
+  display: flex;
+  box-shadow: none !important;
+  flex-direction: row;
+  width: 100%;
+
+  ion-item {
+    width: 50% !important;
+    --inner-padding-end: 0;
+  }
+}
+
+ion-col:nth-child(2n) {
+  ion-card {
+    margin: 0 !important;
+    flex-direction: row-reverse;
+    background: var(--cs-background-accent, #2ABDCE);
+
+    .text-color-primary {
+      color: var(--cs-text-light, #fff) !important;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+:host {
+  --facebook-button-background-color: var(--cs-background-secondary, #FFFFFF);
+  --facebook-button-text-color: var(--cs-text-accent, #2ABDCE);
+}
+
+ion-content {
+
+  ion-grid,
+  ion-row {
+    height: 100%;
+
+    img {
+      max-width: 170px;
+      max-height: 40px;
+      margin: 0 auto;
+    }
+
+    ion-item {
+      --inner-padding-end: 0;
+    }
+
+    form {
+      box-shadow: 0 3px 13px rgba(0, 0, 0, 0.16);
+      border-radius: 14px;
+      background: var(--cs-background-secondary, #FFFFFF);
+
+      ion-item {
+        ion-input {
+          --background: transparent !important;
+          --padding-bottom: 10px;
+          --padding-end: 0;
+          --padding-start: 0;
+          --padding-top: 10px;
+          margin: 16px 16px !important;
+          width: calc(100% - 32px);
+          box-shadow: 0 3px 13px rgba(0, 0, 0, 0.16);
+        }
+
+        ion-icon {
+          position: absolute;
+          right: 25px;
+          bottom: 26px;
+          z-index: 999;
+        }
+
+        ion-label {
+          transform: none;
+          margin: 5px 0 0 0 !important;
+        }
+      }
+
+      .facebookButton {
+        --background-hover: var(--facebook-button-background-color, #FFFFFF) !important;
+        --color-hover: var(--facebook-button-text-color, #2ABDCE) !important;
+        --background: var(--facebook-button-background-color, #FFFFFF) !important;
+        --color: var(--facebook-button-text-color, #2ABDCE) !important;
+        --color-activated: var(--facebook-button-text-color, #2ABDCE) !important;
+        --color-focused: var(--facebook-button-text-color, #2ABDCE) !important;
+        --padding-top: 12px;
+        --padding-bottom: 12px;
+        --padding-start: 10px;
+        --padding-end: 10px;
+        --box-shadow: none;
+        font-size: var(--h5-font-size, 15px) !important;
+        font-weight: bold !important;
+        height: auto;
+        border-radius: 24px;
+        --border-radius: 24px;
+        border-color: transparent !important;
+      }
+    }
+  }
+}

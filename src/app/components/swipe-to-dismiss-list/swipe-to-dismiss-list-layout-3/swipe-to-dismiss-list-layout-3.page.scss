@@ -1,0 +1,27 @@
+/* Style component 3
+========================================================*/
+ion-item-sliding {
+  padding: 8px 16px;
+  background: var(--cs-background-secondary, #fff);
+}
+
+ion-item {
+  --min-height: 250px;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: var(--cs-gradient-image);
+    position: absolute;
+    height: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  ion-label {
+    align-items: end;
+    align-self: flex-end;
+    z-index: 999;
+  }
+}

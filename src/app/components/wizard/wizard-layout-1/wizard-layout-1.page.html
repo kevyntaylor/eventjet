@@ -1,0 +1,46 @@
+<!--  Theme Form - Form + Write Comment -->
+<ion-grid class="background-size"
+  *ngIf="viewEntered"
+  [ngStyle]="{'background-image': 'url(' + data.backgroundImage + ')'}">
+  <ion-slides #wizardSlider pager="true" *ngIf="data != null"
+  (ionSlideDidChange)="ionSlideDidChange($event)"
+  (ionSlideReachStart)="ionSlideReachStart($event)"
+  (ionSlideReachEnd)="ionSlideReachEnd($event)">
+    <ion-slide *ngFor="let item of data.items">
+      <!-- Card -->
+      <ion-card class="no-box-shadow transparent">
+        <!-- Card header -->
+        <ion-card-header class="ion-margin transparent box-shadow border-radius">
+          <!-- Avatar -->
+          <ion-avatar>
+            <img [src]="item.avatarImage" />
+          </ion-avatar>
+          <!-- Logo -->
+          <ion-img class="logo" [src]="item.logo"></ion-img>
+          <!-- Title -->
+          <h1 class="text-size-xl text-color-primary font-bold">{{item.title}}</h1>
+        </ion-card-header>
+        <!-- Content -->
+        <ion-card-content class="ion-no-padding transparent">
+          <p class="text-size-xs text-color-primary font-regular ion-padding-top">
+            {{item.description}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <!--Button section-->
+  <div *ngIf="data != null">
+    <ion-button fill="clear" class="ion-text-capitalize ion-float-start"
+    (click)="onPreviousFunc()" *ngIf="prev">
+      {{data.btnPrev}}
+    </ion-button>
+    <ion-button fill="clear" class="ion-text-capitalize ion-float-end"
+    (click)="onNextFunc()" *ngIf="next">
+      {{data.btnNext}}
+    </ion-button>
+    <ion-button fill="clear" class="ion-text-capitalize ion-float-end"
+    (click)="onFinishFunc()" *ngIf="!next">
+      {{data.btnFinish}}
+    </ion-button>
+  </div>
+</ion-grid>

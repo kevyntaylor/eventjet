@@ -1,0 +1,30 @@
+/* Style component 2
+========================================================*/
+/* Settings header ion-list-header */
+ion-list-header {
+  height: 140px;
+  position: relative;
+
+  ion-item {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    --background: transparent !important;
+  }
+}
+/* Settings List */
+ion-list {
+  ion-item {
+    //opacity: 0;
+  }
+  ion-thumbnail {
+    margin: 0 16px 0 0 !important;
+    height: 150px;
+    width: 120px;
+  }
+
+  .span-small {
+    text-decoration: line-through;
+  }
+}

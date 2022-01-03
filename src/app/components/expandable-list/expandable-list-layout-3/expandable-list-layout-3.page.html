@@ -1,0 +1,59 @@
+<!-- EXPANDABLE --COMPONENT 3 -->
+<ion-app>
+  <!-- Header -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{data.toolbarTitle}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content *ngIf="data != null">
+    <ion-grid class="ion-no-padding">
+      <ion-row *ngIf="data != null">
+        <ion-col size="12">
+          <ion-list>
+            <ion-list-header class="ion-padding-top ion-padding-bottom">
+              <h1 class="text-size-md font-regular text-color-accent ion-no-margin">
+                {{data.header}}</h1>
+            </ion-list-header>
+            <ul class="collapsible ion-no-margin ion-no-padding">
+              <li *ngFor="let group of data.items">
+                <!-- Expandable Full image with CTA Header-->
+                <div class="collapsible-header" (click)="toggleGroup(group)">
+                  <ion-item lines="none" class="default-item">
+                    <ion-label>
+                      <!-- Title -->
+                      <h2 class="text-size-md font-bold text-color-primary">
+                        {{group.title}}</h2>
+                    </ion-label>
+                    <!-- Icon -->
+                    <i slot="end" class="icon {{group.icon}} icon-color-accent icon-font-md"></i>
+                  </ion-item>
+                </div>
+                <!-- Expandable Full image with CTA Body -->
+                <div class="item-accordion" [ngClass]="{'active': group.show }"
+                 [hidden]="!group.show">
+                  <ion-item class="default-item" lines="none"
+                  *ngFor="let item of group.items;"
+                  (tap)="onEvent('onCheckBoxClick', item, $event);">
+                    <ion-checkbox [checked]="item.isChecked"></ion-checkbox>
+                    <ion-label class="ion-padding-start text-size-md
+                    font-bold text-color-primary">{{item.title}}</ion-label>
+                  </ion-item>
+                </div>
+              </li>
+            </ul>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ion-footer class="ion-no-padding">
+    <ion-toolbar class="ion-no-padding transparent">
+      <!-- Footer Button -->
+      <ion-button class="default-button box-shadow ion-margin-start ion-margin-end ion-text-capitalize" expand="block" *ngIf="data != null">{{data.button}}</ion-button>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>

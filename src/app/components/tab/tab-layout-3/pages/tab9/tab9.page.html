@@ -1,0 +1,28 @@
+<!--Google Maps Gmaps + About Us-->
+<ion-content *ngIf="data != null">
+  <ion-grid class="ion-no-padding full-height">
+    <ion-row class="full-height">
+      <ion-col class="full-height" size="12">
+        <agm-map class="full-height" [latitude]="data.map.lat"
+        [longitude]="data.map.lng" [zoom]="data.map.zoom"
+        [mapTypeControl]="data.map.mapTypeControl"
+        [streetViewControl]="data.map.streetViewControl"
+        [styles]="data.map.styles">
+          <agm-marker [latitude]="data.map.lat"
+          [longitude]="data.map.lng"></agm-marker>
+        </agm-map>
+      </ion-col>
+      <ion-col class="ion-no-padding slider" size="12">
+        <ion-card class="border-radius" *ngFor="let item of data.slider">
+          <ion-img [src]="item.image" [alt]="item.imageAlt"></ion-img>
+            <ion-card-content>
+              <h3 class="text-size-sm text-color-light font-bold ion-text-wrap
+              ion-no-margin">{{item.subtitle}}</h3>
+              <h2 class="text-size-md text-color-light font-bold ion-text-wrap">
+                {{item.title}}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

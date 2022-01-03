@@ -1,0 +1,29 @@
+/* Style component 7
+========================================================*/
+.background-size {
+  height: 40vh;
+  position: relative;
+
+  &::after {
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: var(--cs-gradient-image);
+  }
+
+  /* Parallax Title
+   =============================================*/
+  ion-card-content {
+    position: absolute;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+ion-item {
+  --inner-padding-end: 0;
+}

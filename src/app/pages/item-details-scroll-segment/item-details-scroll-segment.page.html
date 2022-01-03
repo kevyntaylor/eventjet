@@ -1,0 +1,34 @@
+<ion-app>
+  <!-- PAGE 1 -->
+  <cs-scroll-segment-layout-1
+    *ngIf="isType(0)"
+    (onItemClick)="onItemClick($event)"
+    (onFollowClick)="onFollowClick($event)"
+    (onMessageClick)="onMessageClick($event)"
+    [data]="data">
+  </cs-scroll-segment-layout-1>
+
+  <!-- PAGE 2 -->
+  <cs-scroll-segment-layout-2
+    *ngIf="isType(1)"
+    (onItemClick)="onItemClick($event)"
+    (onFollowClick)="onFollowClick($event)"
+    [data]="data">
+  </cs-scroll-segment-layout-2>
+
+  <!-- PAGE 3 -->
+  <cs-scroll-segment-layout-3
+    *ngIf="isType(2)"
+    (onItemClick)="onItemClick($event)"
+    [data]="data">
+  </cs-scroll-segment-layout-3>
+
+    <!-- PAGE 4 -->
+    <cs-scroll-segment-layout-4
+    *ngIf="isType(3)"
+    (onItemClick)="onItemClick($event)"
+    (onFollowClick)="onFollowClick($event)"
+    (onMessageClick)="onMessageClick($event)"
+    [data]="data">
+  </cs-scroll-segment-layout-4>
+</ion-app>
